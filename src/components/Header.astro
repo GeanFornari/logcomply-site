@@ -1,0 +1,22 @@
+---
+// Futuramente, poderemos passar o logo como uma propriedade (prop)
+// import { Image } from 'astro:assets';
+// import logoSrc from '../../public/logo.svg';
+---
+<header class="w-full p-4 px-8 flex justify-between items-center text-white bg-[#0B1726] bg-opacity-80 backdrop-blur-sm">
+    <div class="flex items-center gap-6">
+        <img src="/logcomply.svg" alt="LogComply Logo" class="h-32 w-auto" />
+        <span class="text-2xl font-bold"><a href="/">LOGCOMPLY</a></span>
+    </div>
+    <nav class="hidden md:flex items-center space-x-6">
+        <a href="/sobre" class="hover:text-sky-400 transition-colors">Sobre</a>
+        <a href="/funcionalidades" class="hover:text-sky-400 transition-colors">Funcionalidades</a>
+        <a href="/produtos" class="hover:text-sky-400 transition-colors">Produtos</a>
+        <a href="/login" class="ml-4 px-4 py-2 border border-white rounded-md hover:bg-white hover:text-black transition-colors">
+            Entrar
+        </a>
+    </nav>
+    <div class="md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </div>
+</header>
