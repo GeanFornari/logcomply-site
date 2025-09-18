@@ -1,0 +1,13 @@
+/* Ethnocentric RG font-face */
+@font-face {
+  font-family: 'Ethnocentric RG';
+  src: url('/fonts/EthnocentricRG.otf') format('opentype'),
+       url('/fonts/EthnocentricRG.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ethnocentric-font {
+  font-family: 'Ethnocentric RG', 'Arial Black', sans-serif !important;
+}
