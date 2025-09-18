@@ -1,2 +1,9 @@
 @import './ethnocentric.css';
 @import "tailwindcss";
+
+/* Cores da marca VEKTOR AERO */
+:root {
+  --brand-primary: #FF6B35;    /* Laranja principal */
+  --brand-secondary: #1E3A5F;  /* Azul escuro */
+  --brand-dark: #1A1A1A;       /* Cinza escuro/preto */
+}
