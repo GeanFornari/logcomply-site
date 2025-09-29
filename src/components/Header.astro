@@ -1,25 +1,52 @@
----
-// Futuramente, poderemos passar o logo como uma propriedade (prop)
-// import { Image } from 'astro:assets';
-// import logoSrc from '../../public/logo.svg';
----
-<header class="w-full p-2 sm:p-4 px-2 sm:px-8 flex justify-between items-center bg-white shadow-md">
-    <div class="flex items-center gap-2 sm:gap-6 min-w-0 flex-1">
-        <img src="/logo.png" alt="Vector Aero Logo" class="h-12 sm:h-20 md:h-32 w-auto flex-shrink-0" />
-        <div class="flex flex-col min-w-0">
-            <span class="text-sm sm:text-xl md:text-2xl font-bold ethnocentric-font" style="color: #1E3A5F;">
-                <a href="/">VEKTOR AERO</a>
-            </span>
-            <span class="text-xs sm:text-sm md:text-base text-gray-600 font-medium leading-tight hidden sm:block">
-                A plataforma digital indispensável para sua cabine de comando
-            </span>
-        </div>
+<header class="sticky top-0 z-50 w-full bg-white shadow-md">
+  
+  <div class="mx-auto flex max-w-7xl items-center justify-between p-4">
+    
+    <a href="/" class="flex items-center gap-4">
+      <img src="/logo.png" alt="Vektor Aero Logo" class="h-10 sm:h-12 w-auto" />
+      <span class="hidden sm:block text-xl md:text-2xl font-bold ethnocentric-font text-blue-900">
+        VEKTOR AERO
+      </span>
+    </a>
+
+    <div class="flex items-center gap-6">
+      
+      <nav class="hidden md:flex items-center gap-6 text-lg font-semibold text-gray-700">
+        <a href="#sobre" class="hover:text-sky-500 transition-colors">Sobre</a>
+        <a href="#funcionalidades" class="hover:text-sky-500 transition-colors">Funcionalidades</a>
+        <a href="#contato" class="hover:text-sky-500 transition-colors">Contato</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="menu-btn" aria-label="Abrir menu" class="text-gray-800 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
     </div>
-    <nav class="hidden md:flex items-center space-x-6 text-black">
-        <a href="/sobre" class="hover:text-sky-400 transition-colors">Sobre</a>
-        <a href="/funcionalidades" class="hover:text-sky-400 transition-colors">Funcionalidades</a>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <nav class="flex flex-col items-center space-y-4 p-6 text-lg font-semibold text-gray-700">
+      <a href="/sobre" class="hover:text-sky-500">Sobre</a>
+      <a href="/funcionalidades" class="hover:text-sky-500">Funcionalidades</a>
+      <a href="/contato" class="hover:text-sky-500">Contato</a>
     </nav>
-    <div class="md:hidden flex-shrink-0 ml-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    </div>
+  </div>
+
 </header>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+   if (menuBtn && mobileMenu) { // Adiciona esta verificação
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    }
+</script>
