@@ -56,7 +56,7 @@ import Header from '../components/Header.astro';
     </h2>
     
     <p class="mt-6 max-w-3xl mx-auto text-lg leading-8 text-gray-600">
-      A aviação moderna exige precisão absoluta. Cansado da complexidade das planilhas e do risco de cálculos manuais, criamos a Vektor Aero com uma única missão: trazer tecnologia, simplicidade e, acima de tudo, <span class="font-semibold text-blue-900">tranquilidade</span> para a cabine de comando.
+      A aviação moderna exige precisão absoluta. Cansado da complexidade das planilhas e do risco de cálculos manuais, criado pelo piloto Geancarlo Fornari a Vektor Aero com uma única missão: trazer tecnologia, simplicidade e, acima de tudo, <span class="font-semibold text-blue-900">tranquilidade</span> para a cabine de comando.
     </p>
 
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -183,37 +183,62 @@ import Header from '../components/Header.astro';
     </p>
 
     <div class="mt-10 flex items-center justify-center gap-x-4">
-      <form class="flex flex-col sm:flex-row gap-4 w-full max-w-md">
-        <label for="email-address" class="sr-only">Endereço de e-mail</label>
-        <input 
-          id="email-address" 
-          name="email" 
-          type="email" 
-          autocomplete="email" 
-          required 
-          class="flex-auto rounded-md border-0 bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6" 
-          placeholder="Digite seu melhor e-mail"
-        />
-        <button 
-          type="submit" 
-          class="flex-none rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 transition-colors"
-        >
-          Quero Acesso Antecipado
-        </button>
-      </form>
+      <form 
+  action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe" 
+  method="POST" 
+  target="_blank" 
+  class="flex flex-col sm:flex-row gap-4 w-full max-w-md"
+>
+  
+  <input type="hidden" name="ml-submit" value="1" />
+  <input type="hidden" name="anticsrf" value="true" />
+
+  <label for="email-address" class="sr-only">Endereço de e-mail</label>
+  <input 
+    id="email-address" 
+    name="fields[email]" type="email" 
+    autocomplete="email" 
+    required 
+    class="flex-auto rounded-md border-0 bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-green-400 sm:text-sm sm:leading-6" 
+    placeholder="Digite seu melhor e-mail"
+  />
+  
+  <button 
+    type="submit" 
+    class="flex-none rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 transition-colors"
+  >
+    Quero Acesso Antecipado
+  </button>
+</form>
     </div>
 
     <div class="mt-12 border-t border-white/10 pt-8">
-      <p class="text-gray-400">Para parcerias, sugestões ou dúvidas, fale conosco:</p>
-      <div class="mt-6 flex items-center justify-center gap-x-8">
-        <a href="mailto:contato@vektoraero.com" class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
-          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-          </svg>
-          <span>contato@vektoraero.com.br</span>
-        </a>
-        </div>
-    </div>
+  <p class="text-center text-gray-400">Para parcerias, sugestões ou dúvidas, fale conosco:</p>
+  
+  <div class="mt-6 flex items-center justify-center gap-x-8">
+    
+    <a href="mailto:contato@vektoraero.com.br" title="Enviar E-mail" class="text-gray-400 hover:text-white transition-colors">
+      <span class="sr-only">E-mail</span>
+      <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+      </svg>
+    </a>
+
+    <a href="https://www.instagram.com/VektorAero" target="_blank" rel="noopener noreferrer" title="Instagram" class="text-gray-400 hover:text-white transition-colors">
+      <span class="sr-only">Instagram</span>
+      <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363-.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0-2a7 7 0 110 14 7 7 0 010-14zm4.5-1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd" />
+      </svg>
+    </a>
+
+    <a href="https://www.youtube.com/@VektorAero" target="_blank" rel="noopener noreferrer" title="YouTube" class="text-gray-400 hover:text-white transition-colors">
+      <span class="sr-only">YouTube</span>
+      <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 01-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 01-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 011.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418zM9.5 15.584V8.416L15.5 12 9.5 15.584z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+</div>
   </div>
 </section>
   </div>
