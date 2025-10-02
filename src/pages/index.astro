@@ -268,11 +268,45 @@ import Header from '../components/Header.astro';
           });
         }
       });
-</script>
+  </script>
   <script 
     src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" 
     type="text/javascript"
   ></script>
+  <script>
+    // Aguarda o MailerLite carregar e depois intercepta o formulário
+    setTimeout(function() {
+      const form = document.querySelector('form[action*="subscribe"]');
+      console.log('Form encontrado após timeout:', form);
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          e.stopImmediatePropagation(); // Para todos os outros listeners
+          console.log('Submit interceptado');
+
+          const emailInput = form.querySelector('input[name="fields[email]"]') as HTMLInputElement;
+          if (!emailInput || emailInput.value.trim() === '') {
+            alert('Por favor, insira um e-mail válido.');
+            return;
+          }
+
+          try {
+            const formData = new FormData(form as HTMLFormElement);
+            const response = await fetch('https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe', {
+              method: 'POST',
+              body: formData,
+              mode: 'no-cors'
+            });
+            console.log('Enviado para MailerLite:', response);
+          } catch (error) {
+            console.error('Erro ao enviar:', error);
+          }
+
+          window.location.href = 'https://vektoraero.com.br/obrigado';
+        });
+      }
+    }, 1000); // 1 segundo de delay para garantir que o MailerLite carregou
+  </script>
 </Layout>
 
 <style is:global>
