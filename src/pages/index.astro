@@ -181,7 +181,6 @@ import Header from '../components/Header.astro';
         <div class="mt-10 flex items-center justify-center">
           <form 
             action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe" 
-            data-code="167158902571402524"
             method="POST"
             target="ml-frame"
             class="flex flex-col sm:flex-row gap-4 w-full max-w-md"
@@ -240,14 +239,19 @@ import Header from '../components/Header.astro';
   <!-- Iframe oculto para receber resposta do MailerLite -->
   <iframe name="ml-frame" style="display:none;"></iframe>
   
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
   <script is:inline>
-    // Callback de sucesso do MailerLite (ID correto: 31605198)
-    // O webforms.min.js vai chamar esta função automaticamente após o envio bem-sucedido
-    function ml_webform_success_31605198() {
-      console.log('MailerLite callback de sucesso chamado. Redirecionando...');
-      window.location.href = 'https://vektoraero.com.br/obrigado';
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form[action*="mailerlite.com"]');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          console.log('Formulário enviado! Redirecionando em 3 segundos...');
+          // Dar tempo para o MailerLite processar antes de redirecionar
+          setTimeout(function() {
+            window.location.href = 'https://vektoraero.com.br/obrigado';
+          }, 3000);
+        });
+      }
+    });
   </script>
 </Layout>
 
