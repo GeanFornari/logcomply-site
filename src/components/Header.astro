@@ -32,9 +32,9 @@
 
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
     <nav class="flex flex-col items-center space-y-4 p-6 text-lg font-semibold text-gray-700">
-      <a href="/sobre" class="hover:text-sky-500">Sobre</a>
-      <a href="/funcionalidades" class="hover:text-sky-500">Funcionalidades</a>
-      <a href="/contato" class="hover:text-sky-500">Contato</a>
+      <a href="#sobre" class="hover:text-sky-500">Sobre</a>
+      <a href="#funcionalidades" class="hover:text-sky-500">Funcionalidades</a>
+      <a href="#contato" class="hover:text-sky-500">Contato</a>
     </nav>
   </div>
 
@@ -44,9 +44,19 @@
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
-   if (menuBtn && mobileMenu) { // Adiciona esta verificação
+  // Verifica se os elementos essenciais existem
+  if (menuBtn && mobileMenu) {
+    // Adiciona funcionalidade para fechar o menu ao clicar em um link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-    }
+
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
 </script>
