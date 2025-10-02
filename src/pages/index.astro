@@ -290,17 +290,10 @@ import Header from '../components/Header.astro';
             return;
           }
 
-          try {
-            const formData = new FormData(form as HTMLFormElement);
-            const response = await fetch('https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe', {
-              method: 'POST',
-              body: formData,
-              mode: 'no-cors'
-            });
-            console.log('Enviado para MailerLite:', response);
-          } catch (error) {
-            console.error('Erro ao enviar:', error);
-          }
+          // Nota: O fetch para MailerLite está falhando devido a CORS.
+          // Por enquanto, apenas redirecionamos. Se quiser manter o envio,
+          // considere usar uma API própria ou webhook.
+          console.log('Redirecionando sem enviar para MailerLite devido a erro de CORS');
 
           window.location.href = 'https://vektoraero.com.br/obrigado';
         });
