@@ -235,6 +235,32 @@ import Header from '../components/Header.astro';
       </div>
     </section>
   </div>
+  <script>
+  function ml_webform_success_31605198() {
+    const redirectUrl = 'https://vektoraero.com.br/obrigado';
+    
+    try {
+      // Primeiro, verificamos se 'window.top' existe e se podemos acessar sua localização.
+      // Isso satisfaz o alerta do editor de código.
+      if (window.top && window.top.location.href !== redirectUrl) {
+        window.top.location.href = redirectUrl;
+      } else if (window.location.href !== redirectUrl) {
+        // Se não houver 'top', ou se já estivermos na URL, usamos a janela atual.
+        window.location.href = redirectUrl;
+      }
+    } catch (e) {
+      // Se houver um erro de segurança (cross-origin), este 'catch' nos salva
+      // e redireciona a janela atual de qualquer maneira.
+      if (window.location.href !== redirectUrl) {
+        window.location.href = redirectUrl;
+      }
+    }
+  }
+</script>
+  <script 
+    src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" 
+    type="text/javascript"
+  ></script>
 </Layout>
 
 <style is:global>
