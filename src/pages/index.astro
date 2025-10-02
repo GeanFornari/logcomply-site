@@ -183,7 +183,7 @@ import Header from '../components/Header.astro';
             action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe" 
             data-code=""
             method="POST"
-            target="_blank"
+            target="ml-frame"
             class="flex flex-col sm:flex-row gap-4 w-full max-w-md"
           >
             <input type="hidden" name="ml-submit" value="1" />
@@ -237,9 +237,14 @@ import Header from '../components/Header.astro';
       </div>
     </section>
   </div>
+  <!-- Iframe oculto para receber resposta do MailerLite -->
+  <iframe name="ml-frame" style="display:none;"></iframe>
+  
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
   <script is:inline>
+    // Callback de sucesso do MailerLite (ID correto: 31605198)
     function ml_webform_success_31605198() {
+      console.log('MailerLite callback de sucesso chamado');
       try {
         if (window.top) {
           window.top.location.href = 'https://vektoraero.com.br/obrigado';
@@ -248,6 +253,21 @@ import Header from '../components/Header.astro';
         window.location.href = 'https://vektoraero.com.br/obrigado';
       }
     }
+    
+    // Monitorar submit e redirecionar após delay
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form[action*="mailerlite.com"]');
+      if (form) {
+        form.addEventListener('submit', function() {
+          console.log('Formulário submetido, aguardando processamento...');
+          // Aguarda 2 segundos para o MailerLite processar e então força o redirecionamento
+          setTimeout(function() {
+            console.log('Redirecionando para página de agradecimento');
+            window.location.href = 'https://vektoraero.com.br/obrigado';
+          }, 2000);
+        });
+      }
+    });
   </script>
   <script is:inline>
     fetch("https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/takel")
