@@ -180,10 +180,10 @@ import Header from '../components/Header.astro';
 
         <div class="mt-10 flex items-center justify-center">
           <form 
-            id="ml-form"
             action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe" 
+            data-code=""
             method="POST"
-            target="ml-frame"
+            target="_blank"
             class="flex flex-col sm:flex-row gap-4 w-full max-w-md"
           >
             <input type="hidden" name="ml-submit" value="1" />
@@ -237,38 +237,20 @@ import Header from '../components/Header.astro';
       </div>
     </section>
   </div>
-  <!-- Iframe oculto para receber o submit sem redirecionar a página -->
-  <iframe name="ml-frame" style="display:none;"></iframe>
-  
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
   <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('ml-form');
-      const emailInput = document.getElementById('email-address');
-      
-      if (form && emailInput) {
-        form.addEventListener('submit', function(e) {
-          const email = emailInput.value.trim();
-          if (!email) {
-            e.preventDefault();
-            alert('Por favor, insira um e-mail válido.');
-            return;
-          }
-          
-          // Desabilita o botão durante o envio
-          const submitBtn = form.querySelector('button[type="submit"]');
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Enviando...';
-          
-          console.log('Formulário sendo enviado para MailerLite via iframe');
-          
-          // Aguarda um momento para o MailerLite processar e então redireciona
-          setTimeout(function() {
-            console.log('Redirecionando para página de agradecimento');
-            window.location.href = 'https://vektoraero.com.br/obrigado';
-          }, 1500); // 1.5 segundos para dar tempo do MailerLite processar
-        });
+    function ml_webform_success_31605198() {
+      try {
+        if (window.top) {
+          window.top.location.href = 'https://vektoraero.com.br/obrigado';
+        }
+      } catch (e) {
+        window.location.href = 'https://vektoraero.com.br/obrigado';
       }
-    });
+    }
+  </script>
+  <script is:inline>
+    fetch("https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/takel")
   </script>
 </Layout>
 
