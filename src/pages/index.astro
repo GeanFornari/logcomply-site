@@ -313,6 +313,41 @@ import Header from '../components/Header.astro';
       
       console.log('✅ Formulário encontrado:', form);
       
+      // Monitora o iframe
+      const iframe = document.querySelector('iframe[name="ml-frame"]');
+      if (iframe) {
+        console.log('✅ Iframe encontrado:', iframe);
+        
+        iframe.addEventListener('load', function() {
+          console.log('🎯 IFRAME CARREGOU!');
+          
+          try {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            console.log('📄 Conteúdo do iframe:', iframeDoc.body.innerHTML);
+            
+            // Verifica se tem mensagem de sucesso
+            if (iframeDoc.body.innerHTML.includes('success') || iframeDoc.body.innerHTML.includes('obrigado')) {
+              console.log('✅ SUCESSO DETECTADO NO IFRAME!');
+              alert('SUCESSO! Email capturado pelo iframe. Redirecionando...');
+              setTimeout(function() {
+                window.location.href = 'https://vektoraero.com.br/obrigado';
+              }, 1000);
+            }
+          } catch (e) {
+            console.log('⚠️ Não foi possível ler iframe (CORS):', e.message);
+            console.log('⏰ Aguardando 2 segundos e redirecionando...');
+            // Se não conseguimos ler, assume sucesso após 2s
+            setTimeout(function() {
+              console.log('🚀 Redirecionando após timeout...');
+              alert('Email enviado! Redirecionando...');
+              window.location.href = 'https://vektoraero.com.br/obrigado';
+            }, 2000);
+          }
+        });
+      } else {
+        console.error('❌ Iframe não encontrado!');
+      }
+      
       form.addEventListener('submit', function(e) {
         console.log('📧 SUBMIT! Formulário enviado');
         console.log('📋 Action:', form.action);
