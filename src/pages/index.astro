@@ -225,8 +225,40 @@ import Header from '../components/Header.astro';
         </p>
 
         <div class="mt-10 flex items-center justify-center">
-          <!-- MailerLite Embedded Form -->
-          <div class="ml-embedded" data-form="VYpW5Y"></div>
+          <!-- MailerLite Form -->
+          <div id="mlb2-31605198" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-31605198" style="width: 100%; max-width: 600px;">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent" style="margin-bottom: 0px;"></div>
+                  <form id="ml-form" class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Digite seu melhor e-mail" autocomplete="email">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="primary">Quero Acesso Antecipado</button>
+                      <button disabled="disabled" style="display: none;" type="button" class="loading">
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+                <div class="ml-form-successBody row-success" style="display: none">
+                  <div class="ml-form-successContent">
+                    <h4>Obrigado!</h4>
+                    <p>Você se inscreveu com sucesso.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="mt-12 border-t border-white/10 pt-8">
@@ -258,11 +290,25 @@ import Header from '../components/Header.astro';
       </div>
     </section>
   </div>
-  <!-- MailerLite Callback -->
+  <!-- MailerLite Scripts -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
   <script is:inline>
-    function ml_webform_success_31605198() {
-      window.location.href = 'https://vektoraero.com.br/obrigado';
-    }
+    fetch("https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/takel")
+  </script>
+  
+  <!-- Script para redirecionar após envio -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('ml-form');
+      if (form) {
+        form.addEventListener('submit', function() {
+          // Aguarda 1.5s para garantir que o MailerLite processou
+          setTimeout(function() {
+            window.location.href = 'https://vektoraero.com.br/obrigado';
+          }, 1500);
+        });
+      }
+    });
   </script>
 </Layout>
 
