@@ -231,7 +231,7 @@ import Header from '../components/Header.astro';
             <div class="ml-form-align-center">
               <div class="ml-form-embedWrapper embedForm">
                 <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe" data-code="" method="post" target="_blank">
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe" data-code="" method="post" target="ml-frame">
                     <div class="ml-form-formContent horozintalForm">
                       <div class="ml-form-horizontalRow">
                         <div class="ml-input-horizontal">
@@ -254,6 +254,9 @@ import Header from '../components/Header.astro';
             </div>
           </div>
           <!-- End MailerLite Form -->
+          
+          <!-- Iframe oculto para processar o submit -->
+          <iframe name="ml-frame" style="display:none;"></iframe>
         </div>
 
         <div class="mt-12 border-t border-white/10 pt-8">
