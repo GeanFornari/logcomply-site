@@ -237,20 +237,67 @@ import Header from '../components/Header.astro';
     </section>
   </div>
   <!-- Iframe oculto para receber resposta do MailerLite -->
-  <iframe name="ml-frame" style="display:none;"></iframe>
+  <iframe name="ml-frame" id="ml-frame" style="display:none;"></iframe>
   
   <script is:inline>
+    // Sistema de debug e monitoramento COMPLETO
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 [DEBUG] Sistema iniciado');
+      
       const form = document.querySelector('form[action*="mailerlite.com"]');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          console.log('Formulário enviado! Redirecionando em 3 segundos...');
-          // Dar tempo para o MailerLite processar antes de redirecionar
-          setTimeout(function() {
-            window.location.href = 'https://vektoraero.com.br/obrigado';
-          }, 3000);
-        });
+      const iframe = document.getElementById('ml-frame');
+      
+      if (!form) {
+        console.error('❌ [DEBUG] Formulário não encontrado!');
+        return;
       }
+      
+      if (!iframe) {
+        console.error('❌ [DEBUG] Iframe não encontrado!');
+        return;
+      }
+      
+      console.log('✅ [DEBUG] Formulário e iframe encontrados');
+      
+      let formSubmitted = false;
+      let iframeLoaded = false;
+      let redirectTimeout = null;
+      
+      // Monitora quando o iframe carregar a resposta do MailerLite
+      iframe.addEventListener('load', function() {
+        if (!formSubmitted) {
+          console.log('📄 [DEBUG] Iframe carregou (carga inicial)');
+          return;
+        }
+        
+        iframeLoaded = true;
+        console.log('✅ [DEBUG] MailerLite processou! Iframe carregou a resposta');
+        console.log('⏱️ [DEBUG] Aguardando 1 segundo adicional para garantir...');
+        
+        // Aguarda 1 segundo adicional para garantir que o MailerLite salvou
+        setTimeout(function() {
+          console.log('🎉 [DEBUG] Redirecionando para página de obrigado');
+          window.location.href = 'https://vektoraero.com.br/obrigado';
+        }, 1000);
+      });
+      
+      // Monitora o envio do formulário
+      form.addEventListener('submit', function(e) {
+        formSubmitted = true;
+        console.log('📧 [DEBUG] Formulário enviado!');
+        console.log('⏳ [DEBUG] Aguardando MailerLite processar...');
+        
+        // Timeout de segurança: se após 8 segundos o iframe não carregar, redireciona mesmo assim
+        redirectTimeout = setTimeout(function() {
+          if (!iframeLoaded) {
+            console.warn('⚠️ [DEBUG] Timeout atingido! Iframe não carregou em 8s');
+            console.log('🔄 [DEBUG] Redirecionando mesmo assim (fallback)');
+          }
+          window.location.href = 'https://vektoraero.com.br/obrigado';
+        }, 8000);
+      });
+      
+      console.log('✅ [DEBUG] Listeners configurados. Sistema pronto!');
     });
   </script>
 </Layout>
