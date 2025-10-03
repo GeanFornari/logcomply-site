@@ -359,6 +359,13 @@ import Header from '../components/Header.astro';
           console.log('📧 Email:', emailInput.value);
         }
         
+        // Redireciona após 1.5 segundos (tempo para MailerLite processar)
+        console.log('⏰ Aguardando 1.5s para redirecionar...');
+        setTimeout(function() {
+          console.log('🚀 Redirecionando para página de obrigado...');
+          window.location.href = 'https://vektoraero.com.br/obrigado';
+        }, 1500);
+        
         // NÃO previne o envio - deixa o MailerLite processar
       });
       
