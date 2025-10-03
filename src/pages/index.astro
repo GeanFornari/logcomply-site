@@ -272,13 +272,28 @@ import Header from '../components/Header.astro';
         
         iframeLoaded = true;
         console.log('✅ [DEBUG] MailerLite processou! Iframe carregou a resposta');
-        console.log('⏱️ [DEBUG] Aguardando 1 segundo adicional para garantir...');
         
-        // Aguarda 1 segundo adicional para garantir que o MailerLite salvou
-        setTimeout(function() {
-          console.log('🎉 [DEBUG] Redirecionando para página de obrigado');
-          window.location.href = 'https://vektoraero.com.br/obrigado';
-        }, 1000);
+        // Tenta ler o conteúdo do iframe para ver a resposta do MailerLite
+        try {
+          const iframeContent = iframe.contentDocument || iframe.contentWindow.document;
+          const iframeBody = iframeContent.body.innerHTML;
+          console.log('📄 [DEBUG] Conteúdo do iframe:', iframeBody.substring(0, 500));
+          
+          // Verifica se há mensagem de sucesso ou erro
+          if (iframeBody.includes('success') || iframeBody.includes('thank')) {
+            console.log('✅ [DEBUG] Resposta parece ser de SUCESSO');
+          } else if (iframeBody.includes('error') || iframeBody.includes('invalid')) {
+            console.log('❌ [DEBUG] Resposta parece ser de ERRO');
+          }
+        } catch (e) {
+          console.log('⚠️ [DEBUG] Não foi possível ler iframe (CORS):', e.message);
+        }
+        
+        // PAUSA com alert para você ler os logs
+        alert('PAUSE PARA DEBUG!\n\nVeja o console agora (F12).\nClique OK para redirecionar.');
+        
+        console.log('🎉 [DEBUG] Redirecionando para página de obrigado');
+        window.location.href = 'https://vektoraero.com.br/obrigado';
       });
       
       // Monitora o envio do formulário
