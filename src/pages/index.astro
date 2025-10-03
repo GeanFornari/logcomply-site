@@ -287,13 +287,45 @@ import Header from '../components/Header.astro';
   </div>
   <!-- MailerLite Scripts -->
   <script is:inline>
+    // DEBUG: Callback de sucesso
     function ml_webform_success_167158902571402524() {
+      console.log('✅ Callback de sucesso chamado!');
+      alert('SUCESSO! Email capturado. Clique OK para ir para página de obrigado.');
       try {
         window.top.location.href = 'https://vektoraero.com.br/obrigado';
       } catch (e) {
         window.location.href = 'https://vektoraero.com.br/obrigado';
       }
     }
+    
+    // DEBUG: Monitora envio do formulário
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 Sistema de debug iniciado');
+      
+      const form = document.querySelector('form[action*="mailerlite.com"]');
+      if (!form) {
+        console.error('❌ Formulário não encontrado!');
+        return;
+      }
+      
+      console.log('✅ Formulário encontrado:', form);
+      
+      form.addEventListener('submit', function(e) {
+        console.log('📧 SUBMIT! Formulário enviado');
+        console.log('📋 Action:', form.action);
+        console.log('📋 Method:', form.method);
+        console.log('📋 Target:', form.target);
+        
+        const emailInput = form.querySelector('input[name="fields[email]"]');
+        if (emailInput) {
+          console.log('📧 Email:', emailInput.value);
+        }
+        
+        // NÃO previne o envio - deixa o MailerLite processar
+      });
+      
+      console.log('✅ Listeners configurados');
+    });
   </script>
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
   <script is:inline>
