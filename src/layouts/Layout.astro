@@ -1,20 +1,39 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Vektor Aero",
+  description = "Vektor Aero: A plataforma indispensável para a sua cabine de comando. Cálculos de jornada, conformidade e muito mais.",
+} = Astro.props as Props;
 ---
 
-
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Vektor Aero</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J827Z0SRQ2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-J827Z0SRQ2');
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style is:global>
