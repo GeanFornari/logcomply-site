@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://vektoraero.com.br/sitemap.xml
+
+# Páginas principais
+Allow: /
+Allow: /eula
+Allow: /privacidade
+Allow: /obrigado
+
+# Permite bots de verificação
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
