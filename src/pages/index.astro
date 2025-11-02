@@ -40,6 +40,15 @@ import Header from '../components/Header.astro';
               <span>Para toda a tripulação: Pilotos e Comissários.</span>
             </li>
           </ul>
+
+          <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
+            <a href="https://apps.apple.com/br/app/vektor-aero-comply/id6738292448" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105">
+              <img src="/baixar-na-app-store.png" alt="Baixar na App Store" class="h-12 w-auto" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.vektoraero.logcomply" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105">
+              <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-12 w-auto" />
+            </a>
+          </div>
         </div>
 
         <div class="flex-1 flex justify-center items-center mt-12 md:mt-0">
@@ -189,15 +198,37 @@ import Header from '../components/Header.astro';
       </div>
     </section>
 
+    <section class="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+        
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+          Baixe Agora e Decole com Segurança
+        </h2>
+        
+        <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-gray-600">
+          Disponível para iOS e Android. Comece a usar gratuitamente e transforme sua gestão de voo.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a href="https://apps.apple.com/br/app/vektor-aero-comply/id6738292448" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+            <img src="/baixar-na-app-store.png" alt="Baixar na App Store" class="h-14 w-auto" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.vektoraero.logcomply" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+            <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-14 w-auto" />
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section id="contato" class="bg-[#0B1726] py-16 sm:py-24">
       <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
         
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-          Pronto para decolar?
+          Fique por dentro das atualizações do Vektor Aero
         </h2>
         
         <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
-          Junte-se à nossa lista de espera e seja o primeiro a saber do lançamento da Vektor Aero. Receba acesso antecipado e novidades exclusivas.
+          Receba novidades, dicas operacionais e conteúdos exclusivos direto no seu e-mail. 📩 Digite seu endereço abaixo e acompanhe a evolução da jornada.
         </p>
 
         <div class="mt-10 flex items-center justify-center">
@@ -224,7 +255,7 @@ import Header from '../components/Header.astro';
               type="submit" 
               class="flex-none rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 transition-colors"
             >
-              Quero Acesso Antecipado
+              Cadastrar
             </button>
           </form>
         </div>
