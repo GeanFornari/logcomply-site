@@ -1,0 +1,55 @@
+# Configuração Netlify para Vektor Aero
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Forçar HTTPS e redirecionar www -> não-www
+[[redirects]]
+  from = "https://www.vektoraero.com.br/*"
+  to = "https://vektoraero.com.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.vektoraero.com.br/*"
+  to = "https://vektoraero.com.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://vektoraero.com.br/*"
+  to = "https://vektoraero.com.br/:splat"
+  status = 301
+  force = true
+
+# Headers de segurança
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache para assets estáticos
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
