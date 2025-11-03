@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Vektor Aero",
-  description = "Vektor Aero: A plataforma indispensavel para a sua cabine de comando. Calculos de jornada, conformidade e muito mais.",
+  title = "Vektor Aero - Plataforma de Conformidade",
+  description = "A plataforma indispensável para Planejamento de jornada RBAC 117, Lei do Aeronauta e muito mais. Disponível para iOS e Android.",
 } = Astro.props as Props;
 
 // Normalize canonical URL - remove trailing slash
@@ -28,13 +28,19 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
       content="Vektor Aero, JourneyComply, RBAC 117, jornada de voo, Lei do Aeronauta, app para pilotos, conformidade aérea, cálculo de jornada, aplicativo para tripulação"
     />
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://vektoraero.com.br/logo.png" />
+    <meta property="og:image:secure_url" content="https://vektoraero.com.br/logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vektor Aero - Plataforma de Conformidade Aérea" />
     <meta property="og:site_name" content="Vektor Aero" />
+    <meta property="og:locale" content="pt_BR" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -42,6 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://vektoraero.com.br/logo.png" />
+    <meta property="twitter:image:alt" content="Vektor Aero - Plataforma de Conformidade Aérea" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
