@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Template - Vektor Aero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a1a;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0B1726 0%, #1a2942 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+        }
+
+        /* Área segura - guias visuais (remover após screenshot) */
+        .safe-area {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            right: 100px;
+            bottom: 100px;
+            border: 2px dashed rgba(34, 197, 94, 0.3);
+            pointer-events: none;
+        }
+
+        /* Grid de fundo decorativo */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.05;
+            background-image: 
+                linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        .logo {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-text {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 64px;
+            font-weight: 900;
+            color: #0B1726;
+            letter-spacing: -2px;
+        }
+
+        .logo-icon {
+            font-size: 120px;
+            color: #22C55E;
+        }
+
+        h1 {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 36px;
+            font-weight: 400;
+            color: #E5E7EB;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .features {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 24px;
+            color: #22C55E;
+            font-weight: 600;
+        }
+
+        .features span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features .dot {
+            width: 8px;
+            height: 8px;
+            background: #22C55E;
+            border-radius: 50%;
+        }
+
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+
+        .instructions h2 {
+            color: #0B1726;
+            margin-bottom: 15px;
+        }
+
+        .instructions ol {
+            color: #374151;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .instructions code {
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #ef4444;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .instructions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="og-image" id="ogImage">
+            <div class="bg-pattern"></div>
+            <div class="safe-area"></div>
+            
+            <div class="content">
+                <!-- Logo Circle -->
+                <div class="logo">
+                    <div class="logo-icon">✈️</div>
+                </div>
+
+                <!-- Main Title -->
+                <h1>Vektor Aero</h1>
+
+                <!-- Tagline -->
+                <div class="tagline">
+                    A plataforma indispensável<br>
+                    para sua cabine de comando
+                </div>
+
+                <!-- Features -->
+                <div class="features">
+                    <span>
+                        <div class="dot"></div>
+                        RBAC 117
+                    </span>
+                    <span>
+                        <div class="dot"></div>
+                        iOS & Android
+                    </span>
+                    <span>
+                        <div class="dot"></div>
+                        Lei do Aeronauta
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>📸 Como Criar a Imagem og-image.png</h2>
+            <ol>
+                <li><strong>Opção 1 - Screenshot (Mais Fácil):</strong>
+                    <ul>
+                        <li>Abra este arquivo no navegador (Chrome ou Firefox)</li>
+                        <li>Pressione <code>F12</code> para abrir DevTools</li>
+                        <li>Pressione <code>Ctrl + Shift + P</code> (Windows) ou <code>Cmd + Shift + P</code> (Mac)</li>
+                        <li>Digite: <code>Capture node screenshot</code></li>
+                        <li>Clique no elemento com classe <code>.og-image</code></li>
+                        <li>A imagem será salva automaticamente em 1200x630px</li>
+                        <li>Renomeie para <code>og-image.png</code> e coloque em <code>public/</code></li>
+                    </ul>
+                </li>
+                <li><strong>Opção 2 - Ferramenta Online:</strong>
+                    <ul>
+                        <li>Acesse: <a href="https://www.figma.com" target="_blank">Figma</a> ou <a href="https://www.canva.com" target="_blank">Canva</a></li>
+                        <li>Crie um design de <strong>1200 x 630 pixels</strong></li>
+                        <li>Use este template como referência visual</li>
+                        <li>Adicione seu logo real (se tiver)</li>
+                        <li>Exporte como PNG</li>
+                    </ul>
+                </li>
+                <li><strong>Opção 3 - Usar Logo Existente:</strong>
+                    <ul>
+                        <li>Abra <code>public/logo.png</code> em um editor</li>
+                        <li>Crie um canvas de 1200x630px</li>
+                        <li>Centralize o logo (máx 400px de largura)</li>
+                        <li>Adicione fundo azul <code>#0B1726</code></li>
+                        <li>Adicione margens de 100px</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2 style="margin-top: 20px;">✅ Checklist Final</h2>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>☐ Dimensões: <strong>exatamente 1200 x 630 pixels</strong></li>
+                <li>☐ Formato: <strong>PNG</strong></li>
+                <li>☐ Tamanho do arquivo: <strong>< 300KB</strong></li>
+                <li>☐ Nome: <strong>og-image.png</strong></li>
+                <li>☐ Local: <strong>public/og-image.png</strong></li>
+                <li>☐ Logo visível e não cortado</li>
+                <li>☐ Margens de segurança (100px)</li>
+            </ul>
+
+            <h2 style="margin-top: 20px;">🎨 Personalização</h2>
+            <p>Você pode editar este HTML para personalizar:</p>
+            <ul>
+                <li>Trocar o emoji ✈️ pelo logo real da Vektor Aero</li>
+                <li>Ajustar cores (procure por <code>#0B1726</code> e <code>#22C55E</code>)</li>
+                <li>Modificar o texto ou tagline</li>
+                <li>Adicionar mais elementos visuais</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Opção para baixar diretamente via JavaScript
+        function downloadImage() {
+            const element = document.getElementById('ogImage');
+            
+            // Remover temporariamente a área segura
+            const safeArea = element.querySelector('.safe-area');
+            if (safeArea) safeArea.style.display = 'none';
+            
+            // Usar html2canvas se disponível
+            if (typeof html2canvas !== 'undefined') {
+                html2canvas(element, {
+                    width: 1200,
+                    height: 630,
+                    scale: 1,
+                    backgroundColor: '#0B1726'
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'og-image.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    
+                    // Restaurar área segura
+                    if (safeArea) safeArea.style.display = 'block';
+                });
+            } else {
+                alert('Use o método DevTools screenshot explicado nas instruções acima.');
+            }
+        }
+
+        // Atalho para download rápido
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                alert('Use DevTools screenshot:\n1. F12\n2. Ctrl+Shift+P\n3. Digite: Capture node screenshot\n4. Clique no elemento .og-image');
+            }
+        });
+    </script>
+</body>
+</html>
