@@ -5,10 +5,9 @@ interface Props {
   title?: string;
   description?: string;
 }
-
 const {
   title = "Vektor Aero - Plataforma de Conformidade",
-  description = "A plataforma indispensável para Planejamento de jornada RBAC 117, Lei do Aeronauta e muito mais. Disponível para iOS e Android.",
+  description = "A plataforma indispensável para Gerenciamento de Fadiga de acordo com as normas do RBAC 117 e Lei do Aeronauta. Disponível para iOS e Android.",
 } = Astro.props as Props;
 
 // Normalize canonical URL - remove trailing slash
@@ -25,7 +24,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
     <meta name="author" content="Vektor Aero" />
     <meta
       name="keywords"
-      content="Vektor Aero, JourneyComply, RBAC 117, jornada de voo, Lei do Aeronauta, app para pilotos, conformidade aérea, cálculo de jornada, aplicativo para tripulação"
+      content="Vektor Aero, Gerenciamento de Fadiga, fadiga aeronautas, JourneyComply, RBAC 117, jornada de voo, Lei do Aeronauta, app para pilotos, conformidade aérea, cálculo de jornada, aplicativo para tripulação"
     />
     
     <!-- Open Graph / Facebook / WhatsApp -->
@@ -71,7 +70,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
         "name": "Vektor Aero",
         "url": "https://vektoraero.com.br",
         "logo": "https://vektoraero.com.br/logo.png",
-        "description": "Plataforma de conformidade para aviação com cálculos de jornada RBAC 117",
+        "description": "Plataforma de conformidade para aviação com planejamento de jornada RBAC 117",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "",
@@ -79,6 +78,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
           "email": "contato@vektoraero.com.br"
         },
         "sameAs": [
+          "https://www.facebook.com/vektoraero/",
           "https://www.instagram.com/VektorAero",
           "https://www.youtube.com/@VektorAero"
         ]
