@@ -12,8 +12,24 @@
     <div class="flex items-center gap-6">
       
       <nav class="hidden md:flex items-center gap-6 text-lg font-semibold text-gray-700">
-        <a href="#sobre" class="hover:text-sky-500 transition-colors">Sobre</a>
-        <a href="#funcionalidades" class="hover:text-sky-500 transition-colors">Funcionalidades</a>
+        <a href="/sobre-nos" class="hover:text-sky-500 transition-colors">Sobre Nós</a>
+        
+        <!-- Dropdown Soluções -->
+        <div class="relative group">
+          <button class="hover:text-sky-500 transition-colors flex items-center gap-1">
+            Soluções
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a href="/journeycomply" class="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-t-lg transition-colors">
+              <div class="font-semibold">Journey Comply</div>
+              <div class="text-sm text-gray-500">Planejamento de Jornada</div>
+            </a>
+          </div>
+        </div>
+        
         <a href="#contato" class="hover:text-sky-500 transition-colors">Contato</a>
       </nav>
 
@@ -32,8 +48,24 @@
 
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
     <nav class="flex flex-col items-center space-y-4 p-6 text-lg font-semibold text-gray-700">
-      <a href="#sobre" class="hover:text-sky-500">Sobre</a>
-      <a href="#funcionalidades" class="hover:text-sky-500">Funcionalidades</a>
+      <a href="/sobre-nos" class="hover:text-sky-500">Sobre Nós</a>
+      
+      <!-- Submenu Soluções Mobile -->
+      <div class="flex flex-col items-center space-y-2">
+        <button id="mobile-solucoes-btn" class="hover:text-sky-500 flex items-center gap-1">
+          Soluções
+          <svg class="w-4 h-4 transition-transform" id="mobile-solucoes-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="mobile-solucoes-submenu" class="hidden flex-col items-center space-y-2 pl-4">
+          <a href="/journeycomply" class="text-center">
+            <div class="text-base text-gray-700 font-semibold">Journey Comply</div>
+            <div class="text-sm text-gray-500">Planejamento de Jornada</div>
+          </a>
+        </div>
+      </div>
+      
       <a href="#contato" class="hover:text-sky-500">Contato</a>
     </nav>
   </div>
@@ -43,6 +75,9 @@
 <script>
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileSolucoesBtn = document.getElementById('mobile-solucoes-btn');
+  const mobileSolucoesSubmenu = document.getElementById('mobile-solucoes-submenu');
+  const mobileSolucoesIcon = document.getElementById('mobile-solucoes-icon');
 
   // Verifica se os elementos essenciais existem
   if (menuBtn && mobileMenu) {
@@ -57,6 +92,15 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
+    });
+  }
+
+  // Toggle do submenu Soluções no mobile
+  if (mobileSolucoesBtn && mobileSolucoesSubmenu && mobileSolucoesIcon) {
+    mobileSolucoesBtn.addEventListener('click', () => {
+      mobileSolucoesSubmenu.classList.toggle('hidden');
+      mobileSolucoesSubmenu.classList.toggle('flex');
+      mobileSolucoesIcon.classList.toggle('rotate-180');
     });
   }
 </script>
