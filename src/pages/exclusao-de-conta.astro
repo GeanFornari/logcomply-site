@@ -26,19 +26,42 @@ import Header from "../components/Header.astro";
         <h2 class="text-2xl font-semibold text-white mt-8 mb-4">📋 Como Solicitar a Exclusão da Sua Conta</h2>
         
         <p class="text-gray-300 mb-6">
-          Para solicitar a exclusão permanente da sua conta e dados pessoais do JourneyComply, siga os passos abaixo:
+          Você pode excluir permanentemente sua conta e dados pessoais do JourneyComply de duas formas:
+        </p>
+
+        <h3 class="text-xl font-semibold text-green-400 mt-8 mb-4">🎯 Opção 1: Diretamente no Aplicativo (Recomendado)</h3>
+        
+        <div class="rounded-lg bg-green-900/20 p-6 border border-green-500/30 mb-8">
+          <p class="text-gray-300 mb-4">
+            A forma mais rápida e fácil de excluir sua conta:
+          </p>
+          <ol class="list-decimal list-inside text-gray-300 space-y-2 ml-4">
+            <li>Abra o aplicativo JourneyComply</li>
+            <li>Acesse <strong class="text-white">Configurações</strong></li>
+            <li>Selecione <strong class="text-white">Excluir Conta</strong></li>
+            <li>Confirme a exclusão</li>
+          </ol>
+          <p class="text-gray-300 mt-4">
+            <strong class="text-green-400">✓</strong> A exclusão é processada imediatamente e seus dados serão removidos em até <strong class="text-white">30 dias</strong>.
+          </p>
+        </div>
+
+        <h3 class="text-xl font-semibold text-blue-400 mt-8 mb-4">📧 Opção 2: Por E-mail</h3>
+        
+        <p class="text-gray-300 mb-4">
+          Caso prefira ou não tenha mais acesso ao aplicativo, você pode solicitar por e-mail:
         </p>
 
         <div class="space-y-4 mb-8">
           <div class="rounded-lg bg-blue-900/20 p-6 border border-blue-500/30">
-            <h3 class="text-xl font-semibold text-blue-300 mb-2">Passo 1: Entre em Contato</h3>
+            <h4 class="text-lg font-semibold text-blue-300 mb-2">Passo 1: Entre em Contato</h4>
             <p class="text-gray-300">
               Envie um e-mail para <a href="mailto:contato@vektoraero.com.br" class="text-blue-400 hover:text-blue-300 underline">contato@vektoraero.com.br</a> com o assunto "Solicitação de Exclusão de Conta - JourneyComply".
             </p>
           </div>
 
           <div class="rounded-lg bg-blue-900/20 p-6 border border-blue-500/30">
-            <h3 class="text-xl font-semibold text-blue-300 mb-2">Passo 2: Forneça as Informações Necessárias</h3>
+            <h4 class="text-lg font-semibold text-blue-300 mb-2">Passo 2: Forneça as Informações Necessárias</h4>
             <p class="text-gray-300 mb-2">No corpo do e-mail, inclua:</p>
             <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
               <li>Seu nome completo</li>
@@ -48,14 +71,14 @@ import Header from "../components/Header.astro";
           </div>
 
           <div class="rounded-lg bg-blue-900/20 p-6 border border-blue-500/30">
-            <h3 class="text-xl font-semibold text-blue-300 mb-2">Passo 3: Aguarde a Confirmação</h3>
+            <h4 class="text-lg font-semibold text-blue-300 mb-2">Passo 3: Aguarde a Confirmação</h4>
             <p class="text-gray-300">
               Nossa equipe processará sua solicitação e enviará uma confirmação por e-mail em até <strong class="text-white">5 dias úteis</strong>.
             </p>
           </div>
 
           <div class="rounded-lg bg-blue-900/20 p-6 border border-blue-500/30">
-            <h3 class="text-xl font-semibold text-blue-300 mb-2">Passo 4: Exclusão Concluída</h3>
+            <h4 class="text-lg font-semibold text-blue-300 mb-2">Passo 4: Exclusão Concluída</h4>
             <p class="text-gray-300">
               Após a confirmação, sua conta e dados serão excluídos permanentemente do nosso sistema em até <strong class="text-white">30 dias</strong>.
             </p>
@@ -86,11 +109,40 @@ import Header from "../components/Header.astro";
           <li><strong class="text-white">Logs de auditoria e segurança:</strong> Mantidos por até 90 dias para garantir a integridade do sistema</li>
           <li><strong class="text-white">Dados de transações financeiras:</strong> Mantidos conforme exigido pela legislação brasileira (até 5 anos)</li>
           <li><strong class="text-white">Comunicações de suporte:</strong> Mantidas por até 1 ano para fins de histórico e qualidade</li>
+          <li><strong class="text-white">Histórico de assinaturas via RevenueCat:</strong> Informações sobre compras in-app são gerenciadas pelo RevenueCat e pelas lojas (Apple App Store / Google Play Store) conforme suas políticas de retenção</li>
         </ul>
 
         <div class="rounded-lg bg-yellow-900/20 p-6 border border-yellow-500/30 mb-8">
           <p class="text-gray-300">
-            <strong class="text-yellow-400">⚠️ Importante:</strong> Após o período de armazenamento adicional, todos os dados mantidos serão permanentemente excluídos de nossos sistemas.
+            <strong class="text-yellow-400">⚠️ Importante:</strong> Após o período de armazenamento adicional, todos os dados mantidos em nossos servidores serão permanentemente excluídos de nossos sistemas.
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-semibold text-white mt-12 mb-4">💳 Informações sobre Assinaturas e Pagamentos</h2>
+        
+        <div class="rounded-lg bg-purple-900/20 p-6 border border-purple-500/30 mb-8">
+          <p class="text-gray-300 mb-4">
+            O JourneyComply utiliza o <strong class="text-white">RevenueCat</strong> para gerenciar assinaturas e pagamentos in-app. 
+          </p>
+          
+          <p class="text-gray-300 mb-4">
+            <strong class="text-purple-300">📱 Para cancelar assinaturas ativas:</strong>
+          </p>
+          
+          <div class="ml-4 space-y-3">
+            <div>
+              <p class="text-white font-semibold mb-1">🍎 Usuários da Apple App Store:</p>
+              <p class="text-gray-300 text-sm">Acesse Ajustes > [seu nome] > Assinaturas > JourneyComply > Cancelar Assinatura</p>
+            </div>
+            
+            <div>
+              <p class="text-white font-semibold mb-1">📱 Usuários do Google Play Store:</p>
+              <p class="text-gray-300 text-sm">Acesse Google Play Store > Menu > Assinaturas > JourneyComply > Cancelar Assinatura</p>
+            </div>
+          </div>
+          
+          <p class="text-gray-300 mt-4 text-sm">
+            <strong class="text-yellow-400">Nota:</strong> O cancelamento de assinatura não exclui automaticamente sua conta. Para excluir sua conta e todos os dados, siga os passos descritos acima nesta página.
           </p>
         </div>
 
@@ -128,7 +180,10 @@ import Header from "../components/Header.astro";
 
         <div class="mt-12 pt-8 border-t border-white/10">
           <p class="text-sm text-gray-400">
-            Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018 e os requisitos do Google Play Store.
+            Esta política está em conformidade com a Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018, os requisitos do Google Play Store e as diretrizes da Apple App Store.
+          </p>
+          <p class="text-sm text-gray-400 mt-2">
+            <strong class="text-gray-300">Serviços de terceiros:</strong> RevenueCat (gerenciamento de assinaturas), Apple App Store (pagamentos iOS), Google Play Store (pagamentos Android).
           </p>
           <p class="text-sm text-gray-400 mt-2">
             Última atualização: 5 de novembro de 2025
