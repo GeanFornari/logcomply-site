@@ -7,6 +7,7 @@ http://vektoraero.com.br/*       https://vektoraero.com.br/:splat  301!
 /sobre-nos          /sobre-nos/index.html   200
 /journeycomply      /journeycomply/index.html   200
 /exclusao-de-conta  /exclusao-de-conta/index.html   200
+/termos-de-uso      /termos-de-uso/index.html   200
 /eula               /eula/index.html   200
 /privacidade        /privacidade/index.html   200  
 /obrigado           /obrigado/index.html   200
