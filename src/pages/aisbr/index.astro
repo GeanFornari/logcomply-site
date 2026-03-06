@@ -1,0 +1,455 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HeaderProduct from '../../components/HeaderProduct.astro';
+
+const links = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#funcionalidades", label: "Funcionalidades" },
+  { href: "#premium", label: "Premium" },
+  { href: "#contato", label: "Contato" },
+];
+---
+
+<Layout
+  title="AIS BR — Informação Aeronáutica na Palma da Sua Mão"
+  description="Consulte ROTAER, METAR/TAF, NOTAMs e Suplementos diretamente no seu celular. ROTAER disponível offline. Fonte oficial: AISWEB/DECEA e REDEMET."
+>
+  <div class="w-full bg-[#0B1726]">
+    <HeaderProduct menuId="aisbr" links={links} />
+
+    <!-- HERO -->
+    <main class="relative w-full flex items-center min-h-screen py-20 md:py-0">
+
+      <div class="absolute inset-0 z-0">
+        <img src="/painel.png" alt="Painel de uma aeronave" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-[#0B1726] opacity-85"></div>
+      </div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-center justify-center w-full max-w-7xl mx-auto px-6 lg:px-8 gap-8 md:gap-16">
+
+        <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+
+          <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-1.5 mb-6">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span class="text-cyan-400 text-sm font-semibold tracking-wide">AISWEB · DECEA · REDEMET</span>
+          </div>
+
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-gray-100">
+            Informação Aeronáutica<br class="hidden md:block" /> na Palma da Sua Mão.
+          </h1>
+
+          <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-xl">
+            Consulte ROTAER, METAR/TAF, NOTAMs e Suplementos com dados oficiais. ROTAER disponível offline, sempre atualizado.
+          </p>
+
+          <ul class="space-y-4 text-base md:text-lg text-gray-300 mb-8">
+            <li class="flex items-center gap-3 justify-center md:justify-start">
+              <svg class="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span>ROTAER completo — ON e OFF Line</span>
+            </li>
+            <li class="flex items-center gap-3 justify-center md:justify-start">
+              <svg class="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span>METAR/TAF, NOTAMs e Suplementos em tempo real</span>
+            </li>
+            <li class="flex items-center gap-3 justify-center md:justify-start">
+              <svg class="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span>Busca de aeródromos próximos com raio configurável</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105">
+              <img src="/baixar-na-app-store.png" alt="Baixar na App Store" class="h-12 w-auto" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105">
+              <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-12 w-auto" />
+            </a>
+          </div>
+        </div>
+
+        <div class="flex-1 flex justify-center items-center mt-12 md:mt-0">
+          <img
+            src="/aisbr-hero.png"
+            alt="Tela principal do AIS BR"
+            class="max-w-xs md:max-w-sm lg:max-w-md drop-shadow-2xl"
+          />
+        </div>
+
+      </div>
+    </main>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="bg-white py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+          Sua Sala de Briefing Digital
+        </h2>
+
+        <p class="mt-6 max-w-3xl mx-auto text-lg leading-8 text-gray-600">
+          O AIS BR reúne as principais fontes de informação aeronáutica do Brasil — <span class="font-semibold text-blue-900">AISWEB/DECEA</span> e <span class="font-semibold text-blue-900">REDEMET</span> — em um único app intuitivo. Desenvolvido por pilotos, para pilotos.
+        </p>
+
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          <div class="flex flex-col items-center">
+            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100">
+              <svg class="h-8 w-8 text-cyan-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-gray-900">Funciona Offline</h3>
+            <p class="mt-2 text-base text-gray-600">
+              O banco completo do ROTAER é armazenado localmente no seu dispositivo. Acesse dados de qualquer aeródromo mesmo sem conexão.
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100">
+              <svg class="h-8 w-8 text-cyan-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+              </svg>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-gray-900">Fonte Oficial</h3>
+            <p class="mt-2 text-base text-gray-600">
+              Dados diretos do AISWEB/DECEA e REDEMET. O AIS BR é uma interface de consulta — a responsabilidade operacional é sempre do piloto.
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100">
+              <svg class="h-8 w-8 text-cyan-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-gray-900">Nascer e Pôr do Sol</h3>
+            <p class="mt-2 text-base text-gray-600">
+              Horários exatos de nascer e pôr do sol calculados para cada aeródromo. Essencial para classificação de horas diurnas e noturnas.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONALIDADES -->
+    <section id="funcionalidades" class="bg-gray-50 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            Tudo que Você Precisa para o Briefing
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-gray-600">
+            Do ROTAER ao NOTAM, do METAR ao mapa — todas as informações aeronáuticas em um só lugar.
+          </p>
+        </div>
+
+        <div class="mt-16 space-y-20">
+
+          <!-- ROTAER -->
+          <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+            <div class="md:w-2/5 flex justify-center">
+              <img src="/aisbr-tela1.png" alt="ROTAER no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+            </div>
+            <div class="md:w-3/5">
+              <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                ROTAER — ON e OFF Line
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Base de Dados Completa, Sempre Disponível</h3>
+              <p class="mt-4 text-lg text-gray-600">
+                O banco completo do ROTAER fica armazenado no seu dispositivo. Consulte pistas, frequências, elevação, coordenadas e informações operacionais de qualquer aeródromo do Brasil — mesmo sem internet.
+              </p>
+              <p class="mt-3 text-base text-gray-500">
+                Busca por código ICAO, cidade ou nome. Dados sempre atualizados com um toque.
+              </p>
+            </div>
+          </div>
+
+          <!-- METAR/TAF -->
+          <div class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-16">
+            <div class="md:w-2/5 flex justify-center">
+              <img src="/aisbr-tela2.png" alt="METAR/TAF no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+            </div>
+            <div class="md:w-3/5">
+              <div class="inline-flex items-center gap-2 bg-cyan-100 text-cyan-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+                METAR / TAF
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Meteorologia em Tempo Real</h3>
+              <p class="mt-4 text-lg text-gray-600">
+                Consulte METAR e TAF de até 5 localidades simultaneamente. Condições VFR, MVFR e IFR identificadas visualmente. Dados diretos do REDEMET, sempre atualizados.
+              </p>
+              <p class="mt-3 text-base text-gray-500">
+                Com Premium, consultas ilimitadas para planejar sua rota completa.
+              </p>
+            </div>
+          </div>
+
+          <!-- NOTAMs -->
+          <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+            <div class="md:w-2/5 flex justify-center">
+              <img src="/aisbr-tela3.png" alt="NOTAMs no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+            </div>
+            <div class="md:w-3/5">
+              <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                NOTAMs e Suplementos
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Avisos Operacionais Sempre à Vista</h3>
+              <p class="mt-4 text-lg text-gray-600">
+                Acesse NOTAMs e Suplementos AIRAC de múltiplos aeródromos. Filtragem por tipo, datas de validade e referências cruzadas para o AIP. Nenhuma informação crítica passa despercebida.
+              </p>
+              <p class="mt-3 text-base text-gray-500">
+                NOTAMs classificados por relevância e ordenados cronologicamente.
+              </p>
+            </div>
+          </div>
+
+          <!-- Aeródromos próximos + mapa -->
+          <div class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-16">
+            <div class="md:w-2/5 flex justify-center">
+              <img src="/aisbr-mapa.png" alt="Mapa do aeródromo no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+            </div>
+            <div class="md:w-3/5">
+              <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Aeródromos Próximos
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Encontre Aeródromos por Proximidade</h3>
+              <p class="mt-4 text-lg text-gray-600">
+                Busque aeródromos próximos por código ICAO, cidade ou raio de distância configurável (até 200 km). Visualize a localização em mapa satélite integrado ao Google Maps e OpenStreetMap.
+              </p>
+              <p class="mt-3 text-base text-gray-500">
+                Ideal para planejamento de alternativas e rotas de desvio.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM -->
+    <section id="premium" class="bg-white py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            Desbloqueie Todo o Potencial
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-gray-600">
+            Comece gratuitamente. Faça upgrade quando precisar do Brasil inteiro.
+          </p>
+        </div>
+
+        <div class="mt-16 mx-auto max-w-4xl">
+
+          <!-- Tabela comparativa -->
+          <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-lg">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="bg-[#0B1726] text-white">
+                  <th class="px-6 py-4 text-base font-semibold">Recurso</th>
+                  <th class="px-6 py-4 text-base font-semibold text-center">Gratuito</th>
+                  <th class="px-6 py-4 text-base font-semibold text-center text-cyan-400">Premium</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="bg-white hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 text-gray-700 font-medium">Aeródromos (ROTAER offline)</td>
+                  <td class="px-6 py-4 text-center text-gray-500">30 estratégicos</td>
+                  <td class="px-6 py-4 text-center font-semibold text-cyan-700">Todo o Brasil</td>
+                </tr>
+                <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                  <td class="px-6 py-4 text-gray-700 font-medium">Buscas por proximidade</td>
+                  <td class="px-6 py-4 text-center text-gray-500">5 (vitalício)</td>
+                  <td class="px-6 py-4 text-center font-semibold text-cyan-700">Ilimitadas</td>
+                </tr>
+                <tr class="bg-white hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 text-gray-700 font-medium">METAR / TAF</td>
+                  <td class="px-6 py-4 text-center">
+                    <span class="text-red-500 font-bold text-lg">✗</span>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <span class="text-cyan-600 font-bold text-lg">✓</span>
+                  </td>
+                </tr>
+                <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
+                  <td class="px-6 py-4 text-gray-700 font-medium">NOTAMs e Suplementos</td>
+                  <td class="px-6 py-4 text-center">
+                    <span class="text-red-500 font-bold text-lg">✗</span>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <span class="text-cyan-600 font-bold text-lg">✓</span>
+                  </td>
+                </tr>
+                <tr class="bg-white hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 text-gray-700 font-medium">Nascer e Pôr do Sol por aeródromo</td>
+                  <td class="px-6 py-4 text-center">
+                    <span class="text-cyan-600 font-bold text-lg">✓</span>
+                  </td>
+                  <td class="px-6 py-4 text-center">
+                    <span class="text-cyan-600 font-bold text-lg">✓</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Cards de preço -->
+          <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+            <div class="rounded-2xl border border-gray-200 p-8 text-center hover:shadow-md transition-shadow">
+              <h3 class="text-xl font-bold text-gray-900">Mensal</h3>
+              <p class="mt-2 text-gray-500 text-sm">Cancele quando quiser</p>
+              <div class="mt-4">
+                <span class="text-4xl font-bold text-gray-900">R$ 9,90</span>
+                <span class="text-gray-500">/mês</span>
+              </div>
+              <a href="#" class="mt-6 block w-full rounded-xl border-2 border-[#0B1726] text-[#0B1726] font-semibold py-3 hover:bg-[#0B1726] hover:text-white transition-colors">
+                Assinar Mensal
+              </a>
+            </div>
+
+            <div class="relative rounded-2xl border-2 border-cyan-500 p-8 text-center shadow-lg">
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span class="bg-cyan-500 text-white text-xs font-bold px-4 py-1 rounded-full tracking-wide">MAIS POPULAR</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">Anual</h3>
+              <p class="mt-2 text-cyan-700 text-sm font-semibold">Economize R$ 18,90</p>
+              <div class="mt-4">
+                <span class="text-4xl font-bold text-gray-900">R$ 99,90</span>
+                <span class="text-gray-500">/ano</span>
+              </div>
+              <a href="#" class="mt-6 block w-full rounded-xl bg-cyan-500 text-white font-semibold py-3 hover:bg-cyan-600 transition-colors">
+                Assinar Anual
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA DOWNLOAD -->
+    <section class="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+          Baixe Agora e Voe Mais Informado
+        </h2>
+
+        <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-gray-600">
+          Disponível para iOS e Android. Gratuito para começar.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+            <img src="/baixar-na-app-store.png" alt="Baixar na App Store" class="h-14 w-auto" />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+            <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-14 w-auto" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO / NEWSLETTER -->
+    <section id="contato" class="bg-[#0B1726] py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+          Fique por dentro das atualizações
+        </h2>
+
+        <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
+          Receba novidades, novas funcionalidades e conteúdos exclusivos direto no seu e-mail.
+        </p>
+
+        <div class="mt-10 flex items-center justify-center">
+          <form
+            id="newsletter-form-aisbr"
+            action="https://assets.mailerlite.com/jsonp/1832091/forms/167158902571402524/subscribe"
+            method="POST"
+            class="flex flex-col sm:flex-row gap-4 w-full max-w-md"
+          >
+            <input type="hidden" name="ml-submit" value="1" />
+            <input type="hidden" name="anticsrf" value="true" />
+
+            <label for="email-aisbr" class="sr-only">Endereço de e-mail</label>
+            <input
+              id="email-aisbr"
+              name="fields[email]"
+              type="email"
+              autocomplete="email"
+              required
+              class="flex-auto rounded-md border-0 bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-cyan-400 sm:text-sm sm:leading-6"
+              placeholder="Digite seu melhor e-mail"
+            />
+
+            <button
+              type="submit"
+              class="flex-none rounded-md bg-cyan-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-400 transition-colors"
+            >
+              Cadastrar
+            </button>
+          </form>
+        </div>
+
+        <script>
+          document.getElementById('newsletter-form-aisbr')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+            try {
+              await fetch(form.action, { method: 'POST', body: formData, mode: 'no-cors' });
+              window.location.href = '/obrigado';
+            } catch {
+              window.location.href = '/obrigado';
+            }
+          });
+        </script>
+
+        <div class="mt-12 border-t border-white/10 pt-8">
+          <p class="text-center text-gray-400 mb-4">Para parcerias, sugestões ou dúvidas, fale conosco:</p>
+
+          <div class="text-center mb-6">
+            <a href="mailto:contato@vektoraero.com.br" class="inline-flex items-center gap-2 text-xl font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+              </svg>
+              contato@vektoraero.com.br
+            </a>
+          </div>
+
+          <p class="text-center text-gray-400 text-sm mb-6">Ou nos acompanhe nas redes sociais:</p>
+
+          <div class="flex items-center justify-center gap-x-8">
+            <a href="https://www.facebook.com/vektoraero/" target="_blank" rel="noopener noreferrer" title="Facebook" class="hover:opacity-80 transition-opacity">
+              <span class="sr-only">Facebook</span>
+              <img src="/facebook-icon.png" alt="Facebook" class="h-10 w-10 rounded-lg" />
+            </a>
+            <a href="https://www.instagram.com/VektorAero" target="_blank" rel="noopener noreferrer" title="Instagram" class="hover:opacity-80 transition-opacity">
+              <span class="sr-only">Instagram</span>
+              <img src="/insta-icon.jpg" alt="Instagram" class="h-10 w-10 rounded-lg" />
+            </a>
+            <a href="https://www.youtube.com/@VektorAero" target="_blank" rel="noopener noreferrer" title="YouTube" class="hover:opacity-80 transition-opacity">
+              <span class="sr-only">YouTube</span>
+              <img src="/youtube.png" alt="YouTube" class="h-10 w-10 rounded-lg" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</Layout>
+
+<style is:global>
+  body {
+    margin: 0;
+  }
+</style>

@@ -1,11 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeaderJourneyComply from '../components/HeaderJourneyComply.astro';
+import HeaderProduct from '../components/HeaderProduct.astro';
+
+const links = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#funcionalidades", label: "Funcionalidades" },
+  { href: "#contato", label: "Contato" },
+];
 ---
 
 <Layout title="Vektor Aero: A Plataforma Indispensável para sua Cabine de Comando">
   <div class="w-full bg-[#0B1726]">
-    <HeaderJourneyComply />
+    <HeaderProduct menuId="jc" links={links} />
 
     <main class="relative w-full flex items-center min-h-screen py-20 md:py-0">
       
