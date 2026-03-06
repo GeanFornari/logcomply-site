@@ -36,17 +36,23 @@ import Header from '../components/Header.astro';
           </h2>
 
           <p class="text-lg leading-8 text-gray-700">
-            Estamos construindo um ecossistema de aplicativos voltado para diferentes áreas da operação aérea. O primeiro deles, JourneyComply, já está disponível e oferece cálculos automáticos de jornada conforme o RBAC 117 — Solução inteligente para o gerenciamento de fadiga, baseada em critérios regulatórios e validação técnica rigorosa.
+            Estamos construindo um ecossistema de aplicativos voltado para diferentes áreas da operação aérea. Dois deles já estão disponíveis:
           </p>
+
+          <ul class="list-disc pl-6 mt-4 space-y-3 text-lg text-gray-700">
+            <li>
+              <strong>Journey Comply:</strong> cálculos automáticos de jornada conforme o RBAC 117 — solução inteligente para gerenciamento de fadiga, baseada em critérios regulatórios e validação técnica rigorosa.
+            </li>
+            <li>
+              <strong>AIS BR:</strong> acesso offline ao ROTAER e consultas de NOTAMs, Suplementos, METAR/TAF e dados de aeródromos — sua sala de briefing digital, sempre à mão.
+            </li>
+          </ul>
 
           <p class="text-lg leading-8 text-gray-700 mt-6">
             Outros apps em desenvolvimento incluem:
           </p>
 
           <ul class="list-disc pl-6 mt-4 space-y-3 text-lg text-gray-700">
-            <li>
-              <strong>AIS BR:</strong> acesso offline a Rotaer e consultas de Notams, meteorologia e dados de aeródromos, simulando uma sala de briefing.
-            </li>
             <li>
               <strong>Peso & Balanceamento:</strong> ferramenta para cálculos precisos com base em dados do usuário e manuais de aeronaves.
             </li>
@@ -68,7 +74,7 @@ import Header from '../components/Header.astro';
           </h2>
 
           <p class="text-lg leading-8 text-gray-700">
-            Cada funcionalidade é desenvolvida com base em regulamentos oficiais, APIs confiáveis, dados técnicos e manuais aeronáuticos. O JourneyComply é o único app com foco direto no RBAC 117, enquanto os demais exploram áreas complementares com o mesmo rigor técnico.
+            Cada funcionalidade é desenvolvida com base em regulamentos oficiais, APIs confiáveis e dados técnicos. O Journey Comply é referência em conformidade com o RBAC 117, enquanto o AIS BR integra fontes oficiais do DECEA e REDEMET para entregar informação aeronáutica precisa e acessível — todos com o mesmo rigor técnico.
           </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">
@@ -88,7 +94,10 @@ import Header from '../components/Header.astro';
           </h3>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/journeycomply" class="inline-flex items-center justify-center px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-semibold">
-              Ver JourneyComply
+              Ver Journey Comply
+            </a>
+            <a href="/aisbr" class="inline-flex items-center justify-center px-6 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-colors font-semibold">
+              Ver AIS BR
             </a>
             <a href="/#contato" class="inline-flex items-center justify-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
               Entre em Contato
