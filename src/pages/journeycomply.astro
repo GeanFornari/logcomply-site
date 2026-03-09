@@ -51,7 +51,7 @@ const links = [
             <a href="https://apps.apple.com/br/app/journey-comply/id6754107539" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105">
               <img src="/baixar-na-app-store.png" alt="Baixar na App Store" class="h-12 w-auto" />
             </a>
-            <a href="https://play.google.com/store/apps/details?id=br.com.vektoraero.journeycomply" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105">
+            <a href="https://play.google.com/store/apps/details?id=br.com.vektoraero.journeycomply" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105 play-store-link-jc">
               <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-12 w-auto" />
             </a>
           </div>
@@ -110,7 +110,8 @@ const links = [
             <h3 class="mt-5 text-xl font-semibold text-gray-900">Ecossistema Sincronizado</h3>
             <p class="mt-2 text-base text-gray-600">
               O Journey Comply não é apenas um aplicativo. É uma solução integrada que conecta seus dados entre tablet e celular, no iOS e Android.
-
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -149,6 +150,7 @@ const links = [
               <h3 class="text-2xl font-bold text-gray-900">Ecossistema Sincronizado</h3>
               <p class="mt-4 text-lg text-gray-600">
                 Consulte no tablet, planeje no celular. O Journey Comply mantém seus dados perfeitamente sincronizados entre iOS e Android e todos seus dispositivos. Seu gerenciamento de fadiga, sempre acessível.
+              </p>
             </div>
           </div>
           
@@ -216,7 +218,7 @@ const links = [
           <a href="https://apps.apple.com/br/app/journey-comply/id6754107539" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
             <img src="/baixar-na-app-store.png" alt="Baixar na App Store" class="h-14 w-auto" />
           </a>
-          <a href="https://play.google.com/store/apps/details?id=br.com.vektoraero.journeycomply" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+          <a href="https://play.google.com/store/apps/details?id=br.com.vektoraero.journeycomply" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110 play-store-link-jc">
             <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-14 w-auto" />
           </a>
         </div>
@@ -286,6 +288,35 @@ const links = [
               window.location.href = '/obrigado';
             }
           });
+        </script>
+
+        <script is:inline>
+          function setupPlayStoreRedirection() {
+            const links = document.querySelectorAll('.play-store-link-jc');
+            links.forEach(link => {
+              link.addEventListener('click', function(e) {
+                const isAndroid = /Android/i.test(navigator.userAgent);
+                
+                if (isAndroid) {
+                  e.preventDefault();
+                  // Tenta abrir via intent market://
+                  window.location.href = 'market://details?id=br.com.vektoraero.journeycomply';
+                  
+                  // Se em 500ms não sair da página (o que aconteceria se o app abrir), 
+                  // redireciona para a URL web como fallback
+                  setTimeout(() => {
+                    window.location.href = 'https://play.google.com/store/apps/details?id=br.com.vektoraero.journeycomply';
+                  }, 500);
+                }
+              });
+            });
+          }
+
+          // Executa na carga inicial
+          setupPlayStoreRedirection();
+          
+          // Compatibilidade com View Transitions do Astro (se habilitado)
+          document.addEventListener('astro:page-load', setupPlayStoreRedirection);
         </script>
 
         <div class="mt-12 border-t border-white/10 pt-8">
