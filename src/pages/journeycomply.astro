@@ -8,9 +8,25 @@ const links = [
   { href: "#funcionalidades", label: "Funcionalidades" },
   { href: "#contato", label: "Contato" },
 ];
+const schemaData = {
+  "name": "Journey Comply",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+  }
+};
 ---
 
-<Layout title="Vektor Aero: A Plataforma Indispensável para sua Cabine de Comando">
+<Layout 
+  title="Journey Comply - App de Controle de Fadiga | Vektor Aero"
+  description="A plataforma indispensável para Gerenciamento de Fadiga na aviação. Calcule automaticamente sua jornada via RBAC 117 e a Lei do Aeronauta. Baixe grátis!"
+  ogImage="https://vektoraero.com.br/tela_app.png"
+  schemaType="SoftwareApplication"
+  schemaData={schemaData}
+>
   <div class="w-full bg-[#0B1726]">
     <HeaderProduct menuId="jc" links={links} />
     <main class="relative w-full flex items-center pt-24 pb-12 lg:pt-32 lg:pb-16">

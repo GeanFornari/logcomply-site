@@ -8,11 +8,24 @@ const links = [
   { href: "#funcionalidades", label: "Funcionalidades" },
   { href: "#contato", label: "Contato" },
 ];
+const schemaData = {
+  "name": "AIS BR",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "UtilitiesApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+  }
+};
 ---
 
-<Layout
-  title="AIS BR — Informação Aeronáutica na Palma da Sua Mão"
-  description="Consulte ROTAER, METAR/TAF, NOTAMs e Suplementos diretamente no seu celular. ROTAER disponível offline. Fonte oficial: AISWEB/DECEA e REDEMET."
+<Layout 
+  title="AIS BR - Informação Aeronáutica no Celular | Vektor Aero"
+  description="Consulte ROTAER, METAR, TAF, NOTAMs e cartas aeronáuticas offline. O AIS BR traz toda a base AISWEB/DECEA para seu celular. Baixe grátis!"
+  ogImage="https://vektoraero.com.br/aisbr-hero.png"
+  schemaType="SoftwareApplication"
+  schemaData={schemaData}
 >
   <div class="w-full bg-[#0B1726]">
     <HeaderProduct menuId="aisbr" links={links} />

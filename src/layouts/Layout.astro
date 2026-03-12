@@ -4,14 +4,43 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  schemaType?: 'Organization' | 'SoftwareApplication' | 'AboutPage';
+  schemaData?: Record<string, any>;
 }
 const {
   title = "Vektor Aero - Plataforma de Conformidade",
   description = "A plataforma indispensável para Gerenciamento de Fadiga de acordo com as normas do RBAC 117 e Lei do Aeronauta. Disponível para iOS e Android.",
+  ogImage = "https://vektoraero.com.br/og-image.png",
+  schemaType = "Organization",
+  schemaData,
 } = Astro.props as Props;
 
 // Normalize canonical URL - remove trailing slash
 const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site || 'https://vektoraero.com.br').href;
+
+const baseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Vektor Aero",
+  "url": "https://vektoraero.com.br",
+  "logo": "https://vektoraero.com.br/logo.png",
+  "description": "Plataforma de conformidade para aviação com planejamento de jornada RBAC 117",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "",
+    "contactType": "customer service",
+    "email": "contato@vektoraero.com.br"
+  },
+  "sameAs": [
+    "https://www.facebook.com/vektoraero/",
+    "https://www.instagram.com/VektorAero",
+    "https://www.youtube.com/@VektorAero"
+  ]
+};
+
+const finalSchema = schemaData ? { "@context": "https://schema.org", "@type": schemaType, ...schemaData } : baseSchema;
+
 ---
 
 <!doctype html>
@@ -32,8 +61,8 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://vektoraero.com.br/og-image.png" />
-    <meta property="og:image:secure_url" content="https://vektoraero.com.br/og-image.png" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -46,7 +75,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://vektoraero.com.br/og-image.png" />
+    <meta property="twitter:image" content={ogImage} />
     <meta property="twitter:image:alt" content="Vektor Aero - Plataforma de Conformidade Aérea" />
     
     <!-- Canonical URL -->
@@ -63,27 +92,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro
     <title>{title}</title>
     
     <!-- Structured Data -->
-    <script type="application/ld+json" is:inline>
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Vektor Aero",
-        "url": "https://vektoraero.com.br",
-        "logo": "https://vektoraero.com.br/logo.png",
-        "description": "Plataforma de conformidade para aviação com planejamento de jornada RBAC 117",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "",
-          "contactType": "customer service",
-          "email": "contato@vektoraero.com.br"
-        },
-        "sameAs": [
-          "https://www.facebook.com/vektoraero/",
-          "https://www.instagram.com/VektorAero",
-          "https://www.youtube.com/@VektorAero"
-        ]
-      }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(finalSchema)}></script>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J827Z0SRQ2"></script>
