@@ -26,6 +26,26 @@ const { menuId, links } = Astro.props;
     <div class="flex items-center gap-6">
 
       <nav class="hidden md:flex items-center gap-6 text-lg font-semibold text-gray-700">
+        <!-- Dropdown Soluções -->
+        <div class="relative group">
+          <button class="hover:text-sky-500 transition-colors flex items-center gap-1">
+            Soluções
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a href="/journeycomply" class="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-t-lg transition-colors">
+              <div class="font-semibold">Journey Comply</div>
+              <div class="text-sm text-gray-500">Planejamento de Jornada</div>
+            </a>
+            <a href="/aisbr" class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-b-lg border-t border-gray-100 transition-colors">
+              <div class="font-semibold">AIS BR</div>
+              <div class="text-sm text-gray-500">Informação Aeronáutica</div>
+            </a>
+          </div>
+        </div>
+
         {links.map(link => (
           <a href={link.href} class="hover:text-sky-500 transition-colors">{link.label}</a>
         ))}
@@ -46,6 +66,26 @@ const { menuId, links } = Astro.props;
 
   <div id={`mobile-menu-${menuId}`} class="hidden md:hidden bg-white border-t border-gray-200">
     <nav class="flex flex-col items-center space-y-4 p-6 text-lg font-semibold text-gray-700">
+      <!-- Submenu Soluções Mobile -->
+      <div class="flex flex-col items-center space-y-2">
+        <button id={`mobile-solucoes-btn-${menuId}`} class="hover:text-sky-500 flex items-center gap-1">
+          Soluções
+          <svg class="w-4 h-4 transition-transform" id={`mobile-solucoes-icon-${menuId}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id={`mobile-solucoes-submenu-${menuId}`} class="hidden flex-col items-center space-y-2 pl-4">
+          <a href="/journeycomply" class="text-center">
+            <div class="text-base text-gray-700 font-semibold">Journey Comply</div>
+            <div class="text-sm text-gray-500">Planejamento de Jornada</div>
+          </a>
+          <a href="/aisbr" class="text-center">
+            <div class="text-base text-gray-700 font-semibold">AIS BR</div>
+            <div class="text-sm text-gray-500">Informação Aeronáutica</div>
+          </a>
+        </div>
+      </div>
+      
       {links.map(link => (
         <a href={link.href} class="hover:text-sky-500">{link.label}</a>
       ))}
@@ -57,6 +97,9 @@ const { menuId, links } = Astro.props;
 <script define:vars={{ menuId }}>
   const menuBtn = document.getElementById(`menu-btn-${menuId}`);
   const mobileMenu = document.getElementById(`mobile-menu-${menuId}`);
+  const mobileSolucoesBtn = document.getElementById(`mobile-solucoes-btn-${menuId}`);
+  const mobileSolucoesSubmenu = document.getElementById(`mobile-solucoes-submenu-${menuId}`);
+  const mobileSolucoesIcon = document.getElementById(`mobile-solucoes-icon-${menuId}`);
 
   if (menuBtn && mobileMenu) {
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
@@ -69,6 +112,15 @@ const { menuId, links } = Astro.props;
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
+    });
+  }
+
+  // Toggle do submenu Soluções no mobile
+  if (mobileSolucoesBtn && mobileSolucoesSubmenu && mobileSolucoesIcon) {
+    mobileSolucoesBtn.addEventListener('click', () => {
+      mobileSolucoesSubmenu.classList.toggle('hidden');
+      mobileSolucoesSubmenu.classList.toggle('flex');
+      mobileSolucoesIcon.classList.toggle('rotate-180');
     });
   }
 </script>
