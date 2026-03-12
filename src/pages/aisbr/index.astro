@@ -3,9 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import HeaderProduct from '../../components/HeaderProduct.astro';
 
 const links = [
+  { href: "/", label: "Home" },
   { href: "#sobre", label: "Sobre" },
   { href: "#funcionalidades", label: "Funcionalidades" },
-  { href: "#premium", label: "Premium" },
   { href: "#contato", label: "Contato" },
 ];
 ---
@@ -55,6 +55,10 @@ const links = [
               <svg class="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span>Busca de aeródromos próximos com raio configurável</span>
             </li>
+            <li class="flex items-center gap-3 justify-center md:justify-start">
+              <svg class="w-6 h-6 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span>Briefing de voo completo: ROTAER, METAR/TAF e NOTAMs</span>
+            </li>
           </ul>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -71,7 +75,7 @@ const links = [
           <img
             src="/aisbr-hero.png"
             alt="Tela principal do AIS BR"
-            class="max-w-xs md:max-w-sm lg:max-w-md drop-shadow-2xl"
+            class="max-w-[250px] md:max-w-[300px] lg:max-w-[350px] drop-shadow-2xl"
           />
         </div>
 
@@ -150,7 +154,7 @@ const links = [
           <!-- ROTAER -->
           <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
             <div class="md:w-2/5 flex justify-center">
-              <img src="/aisbr-tela1.png" alt="ROTAER no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+              <img src="/aisbr-tela1.png" alt="ROTAER no AIS BR" class="max-w-[220px]" />
             </div>
             <div class="md:w-3/5">
               <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
@@ -170,7 +174,7 @@ const links = [
           <!-- METAR/TAF -->
           <div class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-16">
             <div class="md:w-2/5 flex justify-center">
-              <img src="/aisbr-tela2.png" alt="METAR/TAF no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+              <img src="/aisbr-tela2.png" alt="METAR/TAF no AIS BR" class="max-w-[220px]" />
             </div>
             <div class="md:w-3/5">
               <div class="inline-flex items-center gap-2 bg-cyan-100 text-cyan-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
@@ -190,7 +194,7 @@ const links = [
           <!-- NOTAMs -->
           <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
             <div class="md:w-2/5 flex justify-center">
-              <img src="/aisbr-tela3.png" alt="NOTAMs no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+              <img src="/aisbr-tela3.png" alt="NOTAMs no AIS BR" class="max-w-[220px]" />
             </div>
             <div class="md:w-3/5">
               <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
@@ -207,10 +211,30 @@ const links = [
             </div>
           </div>
 
-          <!-- Aeródromos próximos + mapa -->
+          <!-- BRIEFING DE VOO -->
           <div class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-16">
             <div class="md:w-2/5 flex justify-center">
-              <img src="/aisbr-mapa.png" alt="Mapa do aeródromo no AIS BR" class="max-w-[220px] rounded-2xl shadow-xl" />
+              <img src="/aisbr-briefing.png" alt="Briefing de Voo no AIS BR" class="max-w-[220px]" />
+            </div>
+            <div class="md:w-3/5">
+              <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                Briefing de Voo Completo
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Segurança em Primeiro Lugar</h3>
+              <p class="mt-4 text-lg text-gray-600">
+                Gere um briefing completo de um aeródromo com apenas um toque. O AIS BR compila ROTAER, METAR, TAF, NOTAMs e Suplementos em uma única tela, facilitando a revisão pré-voo e aumentando sua consciência situacional.
+              </p>
+              <p class="mt-3 text-base text-gray-500">
+                Toda a informação oficial consolidada de forma clara e organizada.
+              </p>
+            </div>
+          </div>
+
+          <!-- Aeródromos próximos -->
+          <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+            <div class="md:w-2/5 flex justify-center">
+              <img src="/aisbr-mapa.png" alt="Mapa de aeródromos próximos no AIS BR" class="max-w-[220px]" />
             </div>
             <div class="md:w-3/5">
               <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
@@ -219,10 +243,30 @@ const links = [
               </div>
               <h3 class="text-2xl font-bold text-gray-900">Encontre Aeródromos por Proximidade</h3>
               <p class="mt-4 text-lg text-gray-600">
-                Busque aeródromos próximos por código ICAO ou cidade em um raio de distância configurável (até 200 km). Visualize a localização em mapa satélite integrado ao Google Maps e OpenStreetMap.
+                Busque aeródromos próximos em um raio de distância configurável (até 200 km). Uma ferramenta essencial para planejamento de alternativas e rotas de desvio.
               </p>
               <p class="mt-3 text-base text-gray-500">
-                Ideal para planejamento de alternativas e rotas de desvio.
+                Filtre por tipo de pista e visualize rapidamente as opções ao seu redor.
+              </p>
+            </div>
+          </div>
+
+          <!-- MAPAS GOOGLE E OSM -->
+          <div class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-16">
+            <div class="md:w-2/5 flex justify-center">
+              <img src="/aisbr-mapas-multiplos.png" alt="Mapas Google e OpenStreetMap no AIS BR" class="max-w-[220px]" />
+            </div>
+            <div class="md:w-3/5">
+              <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.488V5.13a2 2 0 011.13-1.797L9 1.5l5.447 2.724A2 2 0 0115 6.023v10.358a2 2 0 01-1.13 1.797L9 20z" /></svg>
+                Google Maps e OpenStreetMap
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">Múltiplas Opções de Visualização</h3>
+              <p class="mt-4 text-lg text-gray-600">
+                Escolha a melhor visualização para sua necessidade. O AIS BR integra Google Maps (Vetor e Satélite) e OpenStreetMap, permitindo uma análise detalhada da topografia e obstáculos ao redor do aeródromo.
+              </p>
+              <p class="mt-3 text-base text-gray-500">
+                Consciência situacional elevada com mapas de alta precisão.
               </p>
             </div>
           </div>
@@ -231,115 +275,14 @@ const links = [
       </div>
     </section>
 
-    <!-- PREMIUM -->
-    <section id="premium" class="bg-white py-16 sm:py-24">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
-        <div class="mx-auto max-w-3xl text-center">
-          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
-            Desbloqueie Todo o Potencial
-          </h2>
-          <p class="mt-4 text-lg leading-8 text-gray-600">
-            Comece gratuitamente. Faça upgrade quando precisar do Brasil inteiro.
-          </p>
-        </div>
-
-        <div class="mt-16 mx-auto max-w-4xl">
-
-          <!-- Tabela comparativa -->
-          <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-lg">
-            <table class="w-full text-left">
-              <thead>
-                <tr class="bg-[#0B1726] text-white">
-                  <th class="px-6 py-4 text-base font-semibold">Recurso</th>
-                  <th class="px-6 py-4 text-base font-semibold text-center">Gratuito</th>
-                  <th class="px-6 py-4 text-base font-semibold text-center text-cyan-400">Premium</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100">
-                <tr class="bg-white hover:bg-gray-50 transition-colors">
-                  <td class="px-6 py-4 text-gray-700 font-medium">Aeródromos (ROTAER offline)</td>
-                  <td class="px-6 py-4 text-center text-gray-500">30 estratégicos</td>
-                  <td class="px-6 py-4 text-center font-semibold text-cyan-700">Todo o Brasil</td>
-                </tr>
-                <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
-                  <td class="px-6 py-4 text-gray-700 font-medium">Buscas por proximidade</td>
-                  <td class="px-6 py-4 text-center text-gray-500">5 (vitalício)</td>
-                  <td class="px-6 py-4 text-center font-semibold text-cyan-700">Ilimitadas</td>
-                </tr>
-                <tr class="bg-white hover:bg-gray-50 transition-colors">
-                  <td class="px-6 py-4 text-gray-700 font-medium">METAR / TAF</td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="text-red-500 font-bold text-lg">✗</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="text-cyan-600 font-bold text-lg">✓</span>
-                  </td>
-                </tr>
-                <tr class="bg-gray-50 hover:bg-gray-100 transition-colors">
-                  <td class="px-6 py-4 text-gray-700 font-medium">NOTAMs e Suplementos</td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="text-red-500 font-bold text-lg">✗</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="text-cyan-600 font-bold text-lg">✓</span>
-                  </td>
-                </tr>
-                <tr class="bg-white hover:bg-gray-50 transition-colors">
-                  <td class="px-6 py-4 text-gray-700 font-medium">Briefing de voo completo: ROTAER, METAR/TAF e NOTAMs</td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="text-cyan-600 font-bold text-lg">✓</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="text-cyan-600 font-bold text-lg">✓</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Cards de preço -->
-          <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-
-            <div class="rounded-2xl border border-gray-200 p-8 text-center hover:shadow-md transition-shadow">
-              <h3 class="text-xl font-bold text-gray-900">Mensal</h3>
-              <p class="mt-2 text-gray-500 text-sm">Cancele quando quiser</p>
-              <div class="mt-4">
-                <span class="text-4xl font-bold text-gray-900">R$ 9,90</span>
-                <span class="text-gray-500">/mês</span>
-              </div>
-              <a href="#" class="mt-6 block w-full rounded-xl border-2 border-[#0B1726] text-[#0B1726] font-semibold py-3 hover:bg-[#0B1726] hover:text-white transition-colors">
-                Assinar Mensal
-              </a>
-            </div>
-
-            <div class="relative rounded-2xl border-2 border-cyan-500 p-8 text-center shadow-lg">
-              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                <span class="bg-cyan-500 text-white text-xs font-bold px-4 py-1 rounded-full tracking-wide">MAIS POPULAR</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900">Anual</h3>
-              <p class="mt-2 text-cyan-700 text-sm font-semibold">Economize R$ 18,90</p>
-              <div class="mt-4">
-                <span class="text-4xl font-bold text-gray-900">R$ 99,90</span>
-                <span class="text-gray-500">/ano</span>
-              </div>
-              <a href="#" class="mt-6 block w-full rounded-xl bg-cyan-500 text-white font-semibold py-3 hover:bg-cyan-600 transition-colors">
-                Assinar Anual
-              </a>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
 
     <!-- CTA DOWNLOAD -->
     <section class="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-24">
       <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
 
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
-          Baixe Agora e Voe Mais Informado
+          Baixe Agora e Voe Mais Seguro
         </h2>
 
         <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-gray-600">
