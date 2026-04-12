@@ -9,7 +9,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://vektoraero.com.br',
   base: '/',
-  trailingSlash: 'ignore',
+  // Força barras exclusivas no final das URLs para evitar conteúdo duplicado no Google
+  trailingSlash: 'always',
 
   build: {
     format: 'directory'

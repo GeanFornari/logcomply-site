@@ -16,14 +16,15 @@ const {
   schemaData,
 } = Astro.props as Props;
 
-// Normalize canonical URL - remove trailing slash
-const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site || 'https://vektoraero.com.br').href;
+// Normalize canonical URL - ensure trailing slash for consistency with astro.config.mjs
+const cleanPathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(cleanPathname, Astro.site || 'https://vektoraero.com.br').href;
 
 const baseSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Vektor Aero",
-  "url": "https://vektoraero.com.br",
+  "url": "https://vektoraero.com.br/",
   "logo": "https://vektoraero.com.br/logo.png",
   "description": "Plataforma de conformidade para aviação com planejamento de jornada RBAC 117",
   "contactPoint": {
@@ -39,7 +40,33 @@ const baseSchema = {
   ]
 };
 
-const finalSchema = schemaData ? { "@context": "https://schema.org", "@type": schemaType, ...schemaData } : baseSchema;
+// Breadcrumb Schema for rich snippets
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "https://vektoraero.com.br/"
+    },
+    ...(Astro.url.pathname !== '/' && Astro.url.pathname !== '' ? [
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": title.split(' — ')[0].split(' - ')[0],
+        "item": canonicalURL
+      }
+    ] : [])
+  ]
+};
+
+const finalSchemas = [
+  baseSchema,
+  breadcrumbSchema,
+  ...(schemaData ? [{ "@context": "https://schema.org", "@type": schemaType, ...schemaData }] : [])
+];
 
 ---
 
@@ -92,7 +119,9 @@ const finalSchema = schemaData ? { "@context": "https://schema.org", "@type": sc
     <title>{title}</title>
     
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(finalSchema)}></script>
+    {finalSchemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    ))}
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J827Z0SRQ2"></script>
