@@ -2,8 +2,25 @@
 @import "tailwindcss";
 
 /* Cores da marca VEKTOR AERO */
-:root {
-  --brand-primary: #FF6B35;    /* Laranja principal */
-  --brand-secondary: #1E3A5F;  /* Azul escuro */
-  --brand-dark: #1A1A1A;       /* Cinza escuro/preto */
+@theme {
+  --color-brand-primary: #FF6B35;    /* Laranja principal */
+  --color-brand-secondary: #1E3A5F;  /* Azul escuro */
+  --color-brand-dark: #1A1A1A;       /* Cinza escuro/preto */
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.glass-dark {
+  @apply bg-brand-dark/40 backdrop-blur-2xl border border-white/5 shadow-2xl;
+}
+
+.glass-white {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+}
+
+.glass-border {
+  @apply border border-white/10;
 }

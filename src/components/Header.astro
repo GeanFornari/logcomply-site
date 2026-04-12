@@ -1,8 +1,9 @@
-<header class="sticky top-0 z-50 w-full bg-white shadow-md">
+<!-- Contém código gerado por IA -->
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 py-4 px-4 md:px-8 transition-all duration-300">
   
-  <div class="mx-auto flex max-w-7xl items-center justify-between p-4">
+  <div id="header-container" class="mx-auto flex max-w-7xl items-center justify-between p-4 glass-white rounded-2xl shadow-xl transition-all duration-300 relative">
     
-    <a href="/" class="flex items-center gap-4">
+    <a href="/" class="flex items-center gap-4 transition-transform hover:scale-105">
       <img src="/logo.png" alt="Vektor Aero Logo" class="h-10 sm:h-12 w-auto" />
       <span class="hidden sm:block text-xl md:text-2xl font-bold ethnocentric-font text-blue-900">
         VEKTOR AERO
@@ -22,12 +23,12 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <a href="/journeycomply" class="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-t-lg transition-colors">
+          <div class="absolute left-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
+            <a href="/journeycomply" class="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-t-xl transition-colors">
               <div class="font-semibold">Journey Comply</div>
               <div class="text-sm text-gray-500">Planejamento de Jornada</div>
             </a>
-            <a href="/aisbr" class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-b-lg border-t border-gray-100 transition-colors">
+            <a href="/aisbr" class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-b-xl border-t border-gray-100 transition-colors">
               <div class="font-semibold">AIS BR</div>
               <div class="text-sm text-gray-500">Informação Aeronáutica</div>
             </a>
@@ -38,7 +39,7 @@
       </nav>
 
       <div class="md:hidden">
-        <button id="menu-btn" aria-label="Abrir menu" class="text-gray-800 focus:outline-none">
+        <button id="menu-btn" aria-label="Abrir menu" class="text-gray-800 focus:outline-none p-2 rounded-lg hover:bg-black/5 transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -50,19 +51,19 @@
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-    <nav class="flex flex-col items-center space-y-4 p-6 text-lg font-semibold text-gray-700">
+  <div id="mobile-menu" class="hidden md:hidden absolute top-[calc(100%-1rem)] left-4 right-4 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-100 mt-2 overflow-hidden">
+    <nav class="flex flex-col items-center space-y-4 p-8 text-lg font-semibold text-gray-700">
       <a href="/sobre-nos" class="hover:text-sky-500">Sobre Nós</a>
       
       <!-- Submenu Soluções Mobile -->
-      <div class="flex flex-col items-center space-y-2">
-        <button id="mobile-solucoes-btn" class="hover:text-sky-500 flex items-center gap-1">
+      <div class="flex flex-col items-center space-y-2 w-full">
+        <button id="mobile-solucoes-btn" class="hover:text-sky-500 flex items-center justify-center gap-1 w-full text-center">
           Soluções
           <svg class="w-4 h-4 transition-transform" id="mobile-solucoes-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-        <div id="mobile-solucoes-submenu" class="hidden flex-col items-center space-y-2 pl-4">
+        <div id="mobile-solucoes-submenu" class="hidden flex-col items-center space-y-4 pt-2 w-full bg-gray-50/50 rounded-xl p-4">
           <a href="/journeycomply" class="text-center">
             <div class="text-base text-gray-700 font-semibold">Journey Comply</div>
             <div class="text-sm text-gray-500">Planejamento de Jornada</div>
@@ -81,15 +82,31 @@
 </header>
 
 <script>
+  const header = document.getElementById('main-header');
+  const container = document.getElementById('header-container');
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileSolucoesBtn = document.getElementById('mobile-solucoes-btn');
   const mobileSolucoesSubmenu = document.getElementById('mobile-solucoes-submenu');
   const mobileSolucoesIcon = document.getElementById('mobile-solucoes-icon');
 
-  // Verifica se os elementos essenciais existem
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.remove('py-4');
+      header?.classList.add('py-2');
+      container?.classList.add('p-2', 'px-6');
+      container?.classList.remove('p-4');
+    } else {
+      header?.classList.add('py-4');
+      header?.classList.remove('py-2');
+      container?.classList.add('p-4');
+      container?.classList.remove('p-2', 'px-6');
+    }
+  });
+
+  // Mobile menu functionality
   if (menuBtn && mobileMenu) {
-    // Adiciona funcionalidade para fechar o menu ao clicar em um link
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
 
     menuBtn.addEventListener('click', () => {
@@ -100,6 +117,13 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target as Node) && !mobileMenu.contains(e.target as Node)) {
+        mobileMenu.classList.add('hidden');
+      }
     });
   }
 
