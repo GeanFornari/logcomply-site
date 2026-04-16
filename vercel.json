@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/kontrolsub",
+      "destination": "/kontrolsub/pt/",
+      "permanent": true
+    },
+    {
+      "source": "/kontrolsub/",
+      "destination": "/kontrolsub/pt/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
