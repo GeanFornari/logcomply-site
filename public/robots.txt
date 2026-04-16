@@ -1,5 +1,10 @@
+# Contém código gerado por IA
 User-agent: *
 Allow: /
-Disallow: /obrigado/
 
+# Instruções específicas para o Googlebot para garantir rastreio total
+User-agent: Googlebot
+Allow: /
+
+# Localização do Sitemap para todos os motores de busca
 Sitemap: https://vektoraero.com.br/sitemap-index.xml
