@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 ---
 
-<Layout 
-  title="Sobre a Vektor Aero | Inovação e Segurança em Software para Aviação"
-  description="Conheça a Vektor Aero, fundada pelo piloto Geancarlo Fornari. Desenvolvemos soluções avançadas como o Journey Comply e AIS BR para sua operação."
+<Layout
+  title="Sobre a Vektor Aero | Tecnologia de Alta Performance para Aviação e Vida Digital"
+  description="A Vektor Aero nasceu na aviação para criar ferramentas que entregam controle absoluto. Conheça Journey Comply, AIS BR e KontrolSub."
   schemaType="AboutPage"
 >
   <div class="w-full bg-[#0B1726]">
@@ -13,18 +13,20 @@ import Header from '../components/Header.astro';
 
     <main class="w-full bg-white">
       <div class="mx-auto max-w-4xl px-6 lg:px-8 py-16 sm:py-24">
-        
+
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
           Sobre Nós
         </h1>
-        
+
         <div class="prose prose-lg max-w-none">
+
+          <!-- DNA Vektor -->
           <p class="text-lg leading-8 text-gray-700">
-            A Vektor Aero é uma companhia brasileira especializada no desenvolvimento de soluções digitais de alta performance para a aviação. Fundada por profissionais com vasta experiência na pilotagem comercial, nossa missão é otimizar a rotina operacional das tripulações provendo ferramentas confiáveis, intuitivas e robustas, garantindo total funcionalidade mesmo em ambientes offline.
+            A Vektor Aero nasceu na aviação, onde a margem de erro é zero e a precisão é vital. Fundada por profissionais com vasta experiência na pilotagem comercial, construímos nossa arquitetura de software sobre a vivência prática de voo — e hoje aplicamos esse mesmo rigor técnico para criar ferramentas digitais que entregam controle absoluto e alta performance para profissionais e usuários exigentes.
           </p>
 
           <p class="text-lg leading-8 text-gray-700 mt-6">
-            Nossa arquitetura de software é fundamentada na vivência prática de voo, mitigando o risco de acesso limitado a dados críticos, como regulamentações vigentes, boletins meteorológicos e informações técnicas. A Vektor Aero une engenharia de software e expertise aeronáutica para projetar sistemas que elevam os padrões de segurança e eficiência nas operações aéreas.
+            Da cabine de comando ao cotidiano digital, nosso compromisso é sempre o mesmo: a informação correta, no momento crítico, com a confiabilidade de quem não pode errar.
           </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">
@@ -32,7 +34,7 @@ import Header from '../components/Header.astro';
           </h2>
 
           <p class="text-lg leading-8 text-gray-700">
-            Consolidar-se como a principal provedora de tecnologia mobile para a aviação civil no Brasil, conduzindo a transformação digital do setor por meio de plataformas acessíveis, validadas e em contínuo aprimoramento.
+            Liderar a transformação digital através de ecossistemas integrados, levando a inteligência e o rigor operacional da aviação para todos os aspectos da vida produtiva e profissional.
           </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">
@@ -40,37 +42,40 @@ import Header from '../components/Header.astro';
           </h2>
 
           <p class="text-lg leading-8 text-gray-700">
-            Desenvolvemos um portfólio integrado de aplicações desenvolvidas para suprir demandas específicas da aviação. Atualmente, destacam-se em operação:
+            Desenvolvemos um portfólio integrado de aplicações organizadas em dois pilares complementares:
           </p>
 
-          <ul class="list-disc pl-6 mt-4 space-y-3 text-lg text-gray-700">
-            <li>
-              <strong>Journey Comply:</strong> Motor de cálculo avançado para a gestão de jornada e prevenção de fadiga, estruturado nativamente sob os parâmetros do RBAC 117 e da Lei do Aeronauta.
-            </li>
-            <li>
-              <strong>AIS BR:</strong> Interface centralizada de briefing de voo com disponibilidade offline do ROTAER, integração de NOTAMs, Suplementos, METAR/TAF e infraestrutura aeroportuária.
-            </li>
-          </ul>
+          <!-- Pilar 1: Aviação -->
+          <div class="mt-8 rounded-2xl border border-blue-100 bg-blue-50 p-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-1">Vertical Aviação — Mission-Critical</h3>
+            <p class="text-sm text-blue-700 mb-4">Segurança, legislação e informação aeronáutica oficial.</p>
+            <ul class="space-y-3 text-lg text-gray-700 list-none pl-0">
+              <li>
+                <strong>Journey Comply:</strong> Motor de cálculo avançado para gestão de jornada e prevenção de fadiga, estruturado nativamente sob os parâmetros do RBAC 117 e da Lei do Aeronauta.
+              </li>
+              <li>
+                <strong>AIS BR:</strong> Interface centralizada de briefing de voo com disponibilidade offline do ROTAER, integração de NOTAMs, Suplementos, METAR/TAF e infraestrutura aeroportuária.
+              </li>
+            </ul>
+          </div>
 
-          <p class="text-lg leading-8 text-gray-700 mt-6">
-            Soluções em fase de desenvolvimento:
-          </p>
-
-          <ul class="list-disc pl-6 mt-4 space-y-3 text-lg text-gray-700">
-            <li>
-              <strong>Peso e Balanceamento:</strong> Suíte computacional para aferição precisa de envelopes de voo, parametrizada pelos manuais operacionais das aeronaves.
-            </li>
-            <li>
-              <strong>Logbook e Diário de Bordo:</strong> Sistema de registro inteligente para a contabilização de tempo de voo, vigência operacional e controle de requisitos de treinamento.
-            </li>
-          </ul>
+          <!-- Pilar 2: Life Management -->
+          <div class="mt-6 rounded-2xl border border-teal-100 bg-teal-50 p-6">
+            <h3 class="text-xl font-bold text-teal-800 mb-1">Vertical Life Management — Strategic Control</h3>
+            <p class="text-sm text-teal-700 mb-4">Organização, finanças e eficiência digital para o dia a dia.</p>
+            <ul class="space-y-3 text-lg text-gray-700 list-none pl-0">
+              <li>
+                <strong>KontrolSub:</strong> Central de gestão de assinaturas digitais com alertas de renovação, análise de gastos, calendário de vencimentos e suporte a 5 idiomas.
+              </li>
+            </ul>
+          </div>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">
-            Público-Alvo
+            Para Quem Toma Decisões
           </h2>
 
           <p class="text-lg leading-8 text-gray-700">
-            Nossas soluções são projetadas para atender às rigorosas exigências de pilotos, instrutores e operadores aéreos que demandam precisão e confiabilidade na tomada de decisão. Embora o Journey Comply também gerencie o escopo de comissários, o roadmap de desenvolvimento da Vektor Aero prioriza as demandas inerentes à cabine de comando.
+            Nossas soluções são feitas para quem toma decisões. Do comandante que precisa gerenciar sua jornada de voo ao usuário que busca gerir suas assinaturas digitais com inteligência — entregamos a informação correta no momento crítico, com a precisão de quem não tem margem para errar.
           </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">
@@ -78,15 +83,15 @@ import Header from '../components/Header.astro';
           </h2>
 
           <p class="text-lg leading-8 text-gray-700">
-            A integridade das nossas ferramentas repousa na estrita aderência à legislação aeronáutica. O Journey Comply traduz a complexidade do RBAC 117 em algoritmos validados, e o AIS BR consolida dados de fontes oficiais como DECEA e REDEMET, submetidos a criteriosos padrões de software para assegurar a entrega da informação aeronáutica correta no momento crítico.
+            A integridade das nossas ferramentas repousa na precisão dos dados e na aderência às fontes oficiais. O Journey Comply traduz a complexidade do RBAC 117 em algoritmos validados. O AIS BR consolida dados do DECEA e REDEMET com criteriosos padrões de software. O KontrolSub organiza suas finanças digitais com clareza e confiabilidade. Em todos os produtos, o padrão é o mesmo: sem aproximações, sem suposições.
           </p>
 
           <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">
-            Presença Nacional
+            Raiz Brasileira, Padrão Global
           </h2>
 
           <p class="text-lg leading-8 text-gray-700">
-            A Vektor Aero é uma corporação genuinamente brasileira, desenvolvendo tecnologia sob medida para o ambiente regulatório e geográfico da nossa aviação civil. Embora desenhados com padrões internacionais, nosso compromisso prioritário permanece enraizado nas operações conduzidas em território nacional.
+            A Vektor Aero é uma empresa genuinamente brasileira. Começamos com a aviação — um dos setores mais exigentes e regulados do país — e expandimos para o cotidiano digital, sempre com a mesma engenharia cuidadosa. Desenvolvemos sob padrões internacionais, com o compromisso prioritário no usuário brasileiro.
           </p>
 
         </div>
@@ -96,12 +101,15 @@ import Header from '../components/Header.astro';
           <h3 class="text-2xl font-bold text-gray-900 mb-6">
             Conheça Nossas Soluções
           </h3>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
             <a href="/journeycomply" class="inline-flex items-center justify-center px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-semibold">
-              Ver Journey Comply
+              Journey Comply
             </a>
             <a href="/aisbr" class="inline-flex items-center justify-center px-6 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-colors font-semibold">
-              Ver AIS BR
+              AIS BR
+            </a>
+            <a href="/kontrolsub" class="inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-semibold">
+              KontrolSub
             </a>
             <a href="/#contato" class="inline-flex items-center justify-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-semibold">
               Entre em Contato

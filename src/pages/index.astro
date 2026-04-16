@@ -14,8 +14,9 @@ import Header from '../components/Header.astro';
     <main class="relative w-full flex items-center py-24 sm:py-32">
 
       <div class="absolute inset-0 z-0">
-        <img src="/painel.png" alt="Painel de uma aeronave" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-[#0B1726] opacity-85"></div>
+        <img src="/horizonte.png" alt="Pista de decolagem ao entardecer" class="w-full h-full object-cover object-center" />
+        <!-- OVERLAY: ajuste opacity-XX para controlar escuridão. opacity-60 = mais claro, opacity-90 = mais escuro -->
+        <div class="absolute inset-0 bg-[#0B1726] opacity-65"></div>
       </div>
 
       <div class="relative z-10 flex flex-col items-center text-center w-full max-w-5xl mx-auto px-6 lg:px-8 gap-6">
@@ -23,11 +24,11 @@ import Header from '../components/Header.astro';
         <img src="/logo.png" alt="Vektor Aero" class="h-20 w-auto mb-2" />
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-100">
-          Tecnologia que Voa com Você
+          Seu destino, nossa tecnologia
         </h1>
 
         <p class="text-xl md:text-2xl text-gray-300 max-w-3xl">
-          O ecossistema digital para a aviação brasileira. Apps desenvolvidos por pilotos, para pilotos.
+          Da inteligência aeronáutica ao controle das suas operações — precisão de cockpit aplicada à sua rotina.
         </p>
 
         <a href="#solucoes" class="mt-4 inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-6 py-3 rounded-full transition-all hover:scale-105">
@@ -49,7 +50,7 @@ import Header from '../components/Header.astro';
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           <!-- Journey Comply -->
           <div class="group relative flex flex-col rounded-3xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -90,7 +91,7 @@ import Header from '../components/Header.astro';
                   <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-11 w-auto" />
                 </a>
               </div>
-              <a href="/journeycomply" class="mt-5 inline-flex items-center gap-1 text-blue-700 font-semibold hover:text-blue-900 transition-colors text-sm">
+              <a href="/journeycomply/" class="mt-5 inline-flex items-center gap-1 text-blue-700 font-semibold hover:text-blue-900 transition-colors text-sm">
                 Ver página completa
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </a>
@@ -138,7 +139,53 @@ import Header from '../components/Header.astro';
                   <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-11 w-auto" />
                 </a>
               </div>
-              <a href="/aisbr" class="mt-5 inline-flex items-center gap-1 text-blue-700 font-semibold hover:text-blue-900 transition-colors text-sm">
+              <a href="/aisbr/" class="mt-5 inline-flex items-center gap-1 text-blue-700 font-semibold hover:text-blue-900 transition-colors text-sm">
+                Ver página completa
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- KontrolSub -->
+          <div class="group relative flex flex-col rounded-3xl overflow-hidden border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <div class="bg-[#152626] px-8 pt-10 pb-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="inline-block bg-teal-400/20 text-teal-300 text-xs font-bold px-3 py-1 rounded-full tracking-widest mb-3">iOS · Android</span>
+                  <h3 class="text-3xl font-bold text-white">KontrolSub</h3>
+                  <p class="mt-2 text-gray-400 text-base">Gestão de Assinaturas Digitais</p>
+                </div>
+                <img src="/kontrolsub/app/pt/dashboard.png" alt="KontrolSub" class="w-32 flex-shrink-0 drop-shadow-xl -mt-2 group-hover:scale-105 transition-transform duration-300" />
+              </div>
+            </div>
+            <div class="flex flex-col flex-1 bg-white px-8 py-6">
+              <ul class="space-y-3 text-gray-600 flex-1">
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  Centralize todas as suas assinaturas em um só lugar
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  Alertas de renovação e análise de gastos
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  Disponível em 5 idiomas
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-teal-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  Calendário mensal de vencimentos
+                </li>
+              </ul>
+              <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                <a href="https://apps.apple.com/app/kontrolsub-subs-tracker/id6760716794" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105 app-store-link-ks">
+                  <img src="/baixar-na-app-store.png" alt="Baixar na App Store" class="h-11 w-auto" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.vektordigital.kontrol_app&hl=pt_BR" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-105">
+                  <img src="/baixar-na-google-play.png" alt="Baixar na Google Play" class="h-11 w-auto" />
+                </a>
+              </div>
+              <a href="/kontrolsub/" class="mt-5 inline-flex items-center gap-1 text-teal-700 font-semibold hover:text-teal-900 transition-colors text-sm">
                 Ver página completa
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </a>
@@ -202,7 +249,7 @@ import Header from '../components/Header.astro';
         </div>
 
         <div class="mt-12">
-          <a href="/sobre-nos" class="inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-900 transition-colors">
+          <a href="/sobre-nos/" class="inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-900 transition-colors">
             Conheça nossa história
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
           </a>
@@ -295,7 +342,8 @@ import Header from '../components/Header.astro';
             // Redirecionamento App Store (iOS)
             const appStoreConfigs = [
               { selector: '.app-store-link-aisbr', appId: 'id6755229539', path: '/us/app/ais-br/id6755229539' },
-              { selector: '.app-store-link-jc', appId: 'id6754107539', path: '/br/app/journey-comply/id6754107539' }
+              { selector: '.app-store-link-jc', appId: 'id6754107539', path: '/br/app/journey-comply/id6754107539' },
+              { selector: '.app-store-link-ks', appId: 'id6760716794', path: '/app/kontrolsub-subs-tracker/id6760716794' }
             ];
 
             appStoreConfigs.forEach(config => {

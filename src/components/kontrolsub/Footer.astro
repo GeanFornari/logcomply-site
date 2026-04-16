@@ -1,0 +1,96 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/kontrolsub/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer id="contato" class="py-20 px-6 border-t border-white/10 mt-20 relative overflow-hidden">
+  <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[80%] h-64 bg-accent/10 blur-[120px] rounded-full"></div>
+
+  <div class="max-w-5xl mx-auto text-center relative z-10">
+    <div class="flex flex-wrap justify-center gap-4 mb-16">
+      <a href="https://apps.apple.com/app/kontrolsub-subs-tracker/id6760716794" class="transition-transform hover:scale-105 active:scale-95 app-store-link-ks" target="_blank" rel="noopener noreferrer">
+        <img src="/kontrolsub/Download_on_the_App_Store_Badge.svg.png" alt="Download on the App Store" class="h-10 md:h-12 w-auto" />
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.vektordigital.kontrol_app&hl=pt_BR" class="transition-transform hover:scale-105 active:scale-95" target="_blank" rel="noopener noreferrer">
+        <img src="/kontrolsub/get-it-on-google-play-badge.png" alt="Get it on Google Play" class="h-10 md:h-12 w-auto" />
+      </a>
+    </div>
+
+    <h2 class="text-3xl font-bold mb-4">{t('footer.newsletter.title')}</h2>
+    <p class="text-text-secondary mb-10 max-w-xl mx-auto">{t('footer.newsletter.desc')}</p>
+
+    <form
+      id="ks-newsletter-form"
+      class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto mb-16 transition-all duration-500"
+      data-sending={t('footer.newsletter.sending')}
+      data-error={t('footer.newsletter.error')}
+    >
+      <input
+        type="email"
+        id="ks-email-input"
+        placeholder={t('footer.newsletter.placeholder')}
+        class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-accent/50 transition-all text-white"
+        required
+      />
+      <button type="submit" class="bg-accent text-background px-8 py-4 rounded-2xl font-bold hover:brightness-110 transition-all whitespace-nowrap flex items-center justify-center gap-2 group">
+        <span>{t('footer.newsletter.button')}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </form>
+
+    <div id="ks-success-message" class="hidden max-w-lg mx-auto mb-16">
+      <div class="glass p-6 rounded-2xl border-accent/20 flex flex-col items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent text-2xl">✨</div>
+        <div>
+          <h3 class="font-bold text-xl text-accent">{t('footer.newsletter.success.title')}</h3>
+          <p class="text-text-secondary">{t('footer.newsletter.success.desc')}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+      <a href="/" class="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
+        <img src="/logo.png" alt="Vektor Aero" class="h-8 w-auto" />
+        <span class="text-sm font-bold tracking-tight ethnocentric-font text-blue-300">VEKTOR AERO</span>
+      </a>
+      <p class="text-sm text-text-secondary">{t('footer.rights')}</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href={`/kontrolsub/${lang}/legal/terms-of-use/`} class="text-sm text-text-secondary hover:text-accent font-medium transition-colors">{t('footer.terms')}</a>
+        <a href={`/kontrolsub/${lang}/legal/privacy-policy/`} class="text-sm text-text-secondary hover:text-accent font-medium transition-colors">{t('footer.privacy')}</a>
+        <a href={`/kontrolsub/${lang}/legal/delete-account/`} class="text-sm text-text-secondary hover:text-accent font-medium transition-colors">{t('footer.delete_account')}</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('ks-newsletter-form') as HTMLFormElement;
+  const emailInput = document.getElementById('ks-email-input') as HTMLInputElement;
+  const successMsg = document.getElementById('ks-success-message');
+  const sendingText = form?.getAttribute('data-sending') || 'Enviando...';
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    const originalContent = btn?.innerHTML;
+    if (btn) { btn.disabled = true; btn.innerHTML = `<span class="animate-pulse">${sendingText}</span>`; }
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailInput.value }),
+      });
+      const result = await response.json();
+      if (response.ok && result.success) {
+        form.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => { form.classList.add('hidden'); successMsg?.classList.remove('hidden'); }, 500);
+      } else { throw new Error(result.message || 'Erro'); }
+    } catch {
+      if (btn) { btn.disabled = false; btn.innerHTML = originalContent || ''; }
+      alert(form?.getAttribute('data-error') || 'Erro ao processar.');
+    }
+  });
+</script>

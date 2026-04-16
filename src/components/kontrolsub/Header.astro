@@ -1,0 +1,153 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/kontrolsub/utils';
+import { languages } from '../../i18n/kontrolsub/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const getLocalizedPath = (targetLang: string) => {
+  const segments = Astro.url.pathname.split('/').filter(Boolean);
+  // Substitui o segmento de idioma (pos 1: /kontrolsub/[lang]/...)
+  segments[1] = targetLang;
+  return '/' + segments.join('/') + '/';
+};
+---
+
+<header id="ks-header" class="fixed top-0 left-0 w-full z-50 py-4 md:py-8 px-6 md:px-12 transition-all duration-300">
+  <div class="max-w-7xl mx-auto flex justify-between items-center glass py-1 md:px-8 rounded-2xl shadow-xl transition-all duration-300 relative" id="ks-header-container">
+
+    <!-- Logo -->
+    <a href={`/kontrolsub/${lang}/`} class="flex items-center gap-3 group transition-transform hover:scale-105 z-50">
+      <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+        <img
+          src="/kontrolsub/logo_kontrol_sem_fundo_1024x1024.png"
+          alt={t('nav.logo_alt')}
+          class="w-full h-full object-contain"
+        />
+      </div>
+      <div class="flex flex-col">
+        <span class="text-lg md:text-xl font-bold tracking-tight leading-none text-white">Kontrol<span class="text-accent underline decoration-2 underline-offset-4">Sub</span></span>
+        <span class="text-[8px] md:text-[10px] text-text-secondary font-medium tracking-widest uppercase mt-1 opacity-70 group-hover:text-accent transition-colors whitespace-nowrap">by Vektor Aero</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href={`/kontrolsub/${lang}/#inicio`} class="text-sm font-medium hover:text-accent transition-colors">{t('nav.home')}</a>
+      <a href={`/kontrolsub/${lang}/#funcionalidades`} class="text-sm font-medium hover:text-accent transition-colors">{t('nav.features')}</a>
+      <a href={`/kontrolsub/${lang}/#contato`} class="text-sm font-medium hover:text-accent transition-colors">{t('nav.contact')}</a>
+      <a href="/" class="text-sm font-medium text-text-secondary hover:text-accent transition-colors">← Vektor Aero</a>
+    </nav>
+
+    <div class="flex items-center gap-2 md:gap-4 z-50">
+      <!-- Language Switcher -->
+      <div class="relative" id="ks-lang-switcher">
+        <button id="ks-lang-button" class="px-2 md:px-3 py-1.5 rounded-lg text-[10px] md:text-xs font-bold md:glass hover:bg-white/10 transition-all flex items-center gap-1 md:gap-2">
+          <span class="opacity-70">🌐</span>
+          <span class="hidden sm:inline">{languages[lang as keyof typeof languages]}</span>
+          <span class="sm:hidden">{lang.slice(0, 2).toUpperCase()}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform" id="ks-lang-chevron"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+
+        <div id="ks-lang-menu" class="absolute right-0 mt-2 w-24 md:w-32 glass-dark rounded-xl border border-white/10 opacity-0 invisible transition-all duration-300 shadow-2xl overflow-hidden py-1">
+          {Object.entries(languages).map(([id, label]) => (
+            <a
+              href={getLocalizedPath(id)}
+              class={`block px-3 md:px-4 py-2 text-[10px] md:text-xs font-medium hover:bg-accent/20 transition-colors ${id === lang ? 'text-accent' : 'text-white'}`}
+            >
+              <span class="hidden sm:inline">{label}</span>
+              <span class="sm:hidden">{id.slice(0, 2).toUpperCase()}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button id="ks-mobile-toggle" class="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-all" aria-label="Menu">
+        <svg id="ks-menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg id="ks-close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="ks-mobile-nav" class="absolute top-[calc(100%+1rem)] left-0 w-full glass-dark rounded-2xl border border-white/10 p-6 md:hidden opacity-0 invisible translate-y-2 transition-all duration-300 z-40">
+      <nav class="flex flex-col gap-6">
+        <a href={`/kontrolsub/${lang}/#inicio`} class="ks-mobile-link text-lg font-medium hover:text-accent transition-colors">{t('nav.home')}</a>
+        <a href={`/kontrolsub/${lang}/#funcionalidades`} class="ks-mobile-link text-lg font-medium hover:text-accent transition-colors">{t('nav.features')}</a>
+        <a href={`/kontrolsub/${lang}/#contato`} class="ks-mobile-link text-lg font-medium hover:text-accent transition-colors">{t('nav.contact')}</a>
+        <a href="/" class="ks-mobile-link text-lg font-medium text-text-secondary hover:text-accent transition-colors">← Vektor Aero</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('ks-header');
+  const container = document.getElementById('ks-header-container');
+  const langButton = document.getElementById('ks-lang-button');
+  const langMenu = document.getElementById('ks-lang-menu');
+  const langChevron = document.getElementById('ks-lang-chevron');
+  const mobileToggle = document.getElementById('ks-mobile-toggle');
+  const mobileNav = document.getElementById('ks-mobile-nav');
+  const menuIcon = document.getElementById('ks-menu-icon');
+  const closeIcon = document.getElementById('ks-close-icon');
+  const mobileLinks = document.querySelectorAll('.ks-mobile-link');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.remove('py-4', 'md:py-8');
+      header?.classList.add('py-2');
+      container?.classList.add('bg-background/80', 'backdrop-blur-2xl');
+      container?.classList.remove('bg-white/5');
+    } else {
+      header?.classList.add('py-4', 'md:py-8');
+      header?.classList.remove('py-2');
+      container?.classList.remove('bg-background/80', 'backdrop-blur-2xl');
+      container?.classList.add('bg-white/5');
+    }
+  });
+
+  langButton?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = !langMenu?.classList.contains('invisible');
+    if (isOpen) { closeLangMenu(); } else { openLangMenu(); closeMobileMenu(); }
+  });
+
+  function openLangMenu() {
+    langMenu?.classList.remove('opacity-0', 'invisible');
+    langChevron?.classList.add('rotate-180');
+  }
+  function closeLangMenu() {
+    langMenu?.classList.add('opacity-0', 'invisible');
+    langChevron?.classList.remove('rotate-180');
+  }
+
+  mobileToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = !mobileNav?.classList.contains('invisible');
+    if (isOpen) { closeMobileMenu(); } else { openMobileMenu(); closeLangMenu(); }
+  });
+
+  function openMobileMenu() {
+    mobileNav?.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+    menuIcon?.classList.add('hidden');
+    closeIcon?.classList.remove('hidden');
+  }
+  function closeMobileMenu() {
+    mobileNav?.classList.add('opacity-0', 'invisible', 'translate-y-2');
+    menuIcon?.classList.remove('hidden');
+    closeIcon?.classList.add('hidden');
+  }
+
+  document.addEventListener('click', () => { closeLangMenu(); closeMobileMenu(); });
+  mobileLinks.forEach(link => link.addEventListener('click', () => closeMobileMenu()));
+  langMenu?.addEventListener('click', (e) => e.stopPropagation());
+  mobileNav?.addEventListener('click', (e) => e.stopPropagation());
+</script>
+
+<style>
+  .glass-dark {
+    background: linear-gradient(135deg, rgba(34, 58, 58, 0.95) 0%, rgba(21, 38, 38, 0.98) 100%);
+    backdrop-filter: blur(20px);
+  }
+</style>

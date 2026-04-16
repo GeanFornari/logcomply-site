@@ -36,13 +36,17 @@ const { menuId, links } = Astro.props;
             </svg>
           </button>
           <div class="absolute left-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
-            <a href="/journeycomply" class="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-t-xl transition-colors">
+            <a href="/journeycomply/" class="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-t-xl transition-colors">
               <div class="font-semibold">Journey Comply</div>
               <div class="text-sm text-gray-500">Planejamento de Jornada</div>
             </a>
-            <a href="/aisbr" class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 rounded-b-xl border-t border-gray-100 transition-colors">
+            <a href="/aisbr/" class="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600 border-t border-gray-100 transition-colors">
               <div class="font-semibold">AIS BR</div>
               <div class="text-sm text-gray-500">Informação Aeronáutica</div>
+            </a>
+            <a href="/kontrolsub/" class="block px-4 py-3 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-b-xl border-t border-gray-100 transition-colors">
+              <div class="font-semibold">KontrolSub</div>
+              <div class="text-sm text-gray-500">Gestão de Assinaturas</div>
             </a>
           </div>
         </div>
@@ -76,13 +80,17 @@ const { menuId, links } = Astro.props;
           </svg>
         </button>
         <div id={`mobile-solucoes-submenu-${menuId}`} class="hidden flex-col items-center space-y-4 pt-2 w-full bg-gray-50/50 rounded-xl p-4">
-          <a href="/journeycomply" class="text-center">
+          <a href="/journeycomply/" class="text-center">
             <div class="text-base text-gray-700 font-semibold">Journey Comply</div>
             <div class="text-sm text-gray-500">Planejamento de Jornada</div>
           </a>
-          <a href="/aisbr" class="text-center">
+          <a href="/aisbr/" class="text-center">
             <div class="text-base text-gray-700 font-semibold">AIS BR</div>
             <div class="text-sm text-gray-500">Informação Aeronáutica</div>
+          </a>
+          <a href="/kontrolsub/" class="text-center">
+            <div class="text-base text-gray-700 font-semibold">KontrolSub</div>
+            <div class="text-sm text-gray-500">Gestão de Assinaturas</div>
           </a>
         </div>
       </div>

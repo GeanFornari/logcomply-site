@@ -20,5 +20,18 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [sitemap()]
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/obrigado/'),
+      changefreq: 'weekly',
+      priority: 0.7,
+      serialize(item) {
+        // Páginas principais com prioridade máxima
+        if (['https://vektoraero.com.br/', 'https://vektoraero.com.br/journeycomply/', 'https://vektoraero.com.br/aisbr/', 'https://vektoraero.com.br/kontrolsub/', 'https://vektoraero.com.br/sobre-nos/'].includes(item.url)) {
+          return { ...item, priority: 1.0 };
+        }
+        return item;
+      },
+    })
+  ]
 });

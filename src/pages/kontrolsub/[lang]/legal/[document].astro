@@ -1,0 +1,87 @@
+---
+import { getCollection, render } from 'astro:content';
+import KontrolSubLayout from '../../../../layouts/KontrolSubLayout.astro';
+import { languages } from '../../../../i18n/kontrolsub/ui';
+
+const PAGE_TITLES: Record<string, Record<string, string>> = {
+  pt: { 'privacy-policy': 'Política de Privacidade', 'terms-of-use': 'Termos de Uso', 'delete-account': 'Exclusão de Conta' },
+  en: { 'privacy-policy': 'Privacy Policy', 'terms-of-use': 'Terms of Use', 'delete-account': 'Account Deletion' },
+  es: { 'privacy-policy': 'Política de Privacidad', 'terms-of-use': 'Términos de Uso', 'delete-account': 'Eliminación de Cuenta' },
+  fr: { 'privacy-policy': 'Politique de Confidentialité', 'terms-of-use': "Conditions d'Utilisation", 'delete-account': 'Suppression de Compte' },
+  de: { 'privacy-policy': 'Datenschutzrichtlinie', 'terms-of-use': 'Nutzungsbedingungen', 'delete-account': 'Kontolöschung' },
+};
+
+export async function getStaticPaths() {
+  const allLegal = await getCollection('legal');
+
+  return allLegal
+    .filter((entry) => {
+      const parts = entry.id.split('/');
+      const langId = parts[2]?.replace(/\.md$/, '');
+      return parts[0] === 'kontrolsub' && langId && langId in languages;
+    })
+    .map((entry) => {
+      const parts = entry.id.split('/');
+      const lang = parts[2].replace(/\.md$/, '');
+      const document = parts[1];
+      return { params: { lang, document }, props: { entry } };
+    });
+}
+
+const { lang, document } = Astro.params;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const pageTitle = PAGE_TITLES[lang ?? 'en']?.[document ?? ''] ?? 'Legal';
+---
+
+<KontrolSubLayout title={pageTitle}>
+  <main class="legal-page">
+    <div class="legal-container">
+      <a href={`/kontrolsub/${lang}/`} class="back-link">
+        ← {lang === 'pt' ? 'Voltar' : lang === 'es' ? 'Volver' : lang === 'fr' ? 'Retour' : lang === 'de' ? 'Zurück' : 'Back'}
+      </a>
+      <article class="legal-content">
+        <Content />
+      </article>
+    </div>
+  </main>
+</KontrolSubLayout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    background: #152626;
+    padding: 5rem 1.5rem 4rem;
+  }
+  .legal-container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #20FFD7;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #7ffff0; }
+  .legal-content :global(h1) {
+    font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .legal-content :global(h2) {
+    font-size: 1.25rem; font-weight: 700; color: #e2e8f0; margin-top: 2.5rem; margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem; border-bottom: 1px solid rgba(32, 255, 215, 0.2);
+  }
+  .legal-content :global(h3) { font-size: 1rem; font-weight: 600; color: #cbd5e1; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  .legal-content :global(p) { color: #94a3b8; line-height: 1.75; margin-bottom: 1rem; font-size: 0.95rem; }
+  .legal-content :global(ul), .legal-content :global(ol) { color: #94a3b8; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .legal-content :global(li) { margin-bottom: 0.4rem; line-height: 1.7; font-size: 0.95rem; }
+  .legal-content :global(strong) { color: #e2e8f0; font-weight: 600; }
+  .legal-content :global(a) { color: #20FFD7; text-decoration: underline; text-underline-offset: 3px; }
+  .legal-content :global(a:hover) { color: #7ffff0; }
+  .legal-content :global(hr) { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 2rem 0; }
+</style>
