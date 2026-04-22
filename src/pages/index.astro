@@ -61,7 +61,7 @@ import Header from '../components/Header.astro';
                   <h3 class="text-3xl font-bold text-white">Journey Comply</h3>
                   <p class="mt-2 text-gray-400 text-base">Gerenciamento de Fadiga e Jornada</p>
                 </div>
-                <img src="/tela1.jpg" alt="Journey Comply" class="w-32 flex-shrink-0 drop-shadow-xl -mt-2 group-hover:scale-105 transition-transform duration-300" />
+                <img src="/tela1.jpg" alt="Interface do app Journey Comply demonstrando funcionalidades de cálculo de jornada em miniatura" class="w-32 flex-shrink-0 drop-shadow-xl -mt-2 group-hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
             <div class="flex flex-col flex-1 bg-white px-8 py-6">
@@ -108,7 +108,7 @@ import Header from '../components/Header.astro';
                   <p class="mt-2 text-gray-400 text-base">Informação Aeronáutica Oficial</p>
                 </div>
                 <!-- iPhone frame inline — imagem mantém w-32 -->
-                <img src="/aisbr-card.png" alt="AIS BR" class="w-32 flex-shrink-0 drop-shadow-xl -mt-2 group-hover:scale-105 transition-transform duration-300" />
+                <img src="/aisbr-card.png" alt="Interface do app AIS BR em miniatura apresentando o acesso rápido a informações aeronáuticas" class="w-32 flex-shrink-0 drop-shadow-xl -mt-2 group-hover:scale-105 transition-transform duration-300" />
 
               </div>
             </div>
@@ -155,7 +155,7 @@ import Header from '../components/Header.astro';
                   <h3 class="text-3xl font-bold text-white">KontrolSub</h3>
                   <p class="mt-2 text-gray-400 text-base">Gestão de Assinaturas Digitais</p>
                 </div>
-                <img src="/kontrolsub/app/pt/dashboard.png" alt="KontrolSub" class="w-32 flex-shrink-0 drop-shadow-xl -mt-2 group-hover:scale-105 transition-transform duration-300" />
+                <img src="/kontrolsub/app/pt/dashboard.png" alt="Interface do app KontrolSub exibindo o dashboard de controle de assinaturas e gastos mensais" class="w-32 flex-shrink-0 drop-shadow-xl -mt-2 group-hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
             <div class="flex flex-col flex-1 bg-white px-8 py-6">
@@ -306,9 +306,9 @@ import Header from '../components/Header.astro';
             const formData = new FormData(form);
             try {
               await fetch(form.action, { method: 'POST', body: formData, mode: 'no-cors' });
-              window.location.href = '/obrigado';
+              window.location.href = '/obrigado/';
             } catch {
-              window.location.href = '/obrigado';
+              window.location.href = '/obrigado/';
             }
           });
         </script>
@@ -400,6 +400,10 @@ import Header from '../components/Header.astro';
               <img src="/youtube.png" alt="YouTube" class="h-10 w-10 rounded-lg" />
             </a>
           </div>
+
+          <p class="text-center text-gray-500 text-xs mt-12">
+            © 2026 Vektor Aero. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </section>

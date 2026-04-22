@@ -1,4 +1,5 @@
 ---
-// Redirect handled by vercel.json (HTTP 301) to avoid Astro generating a noindex HTML page.
-// This file kept empty intentionally.
+// Redirect handled by vercel.json (HTTP 301) in production.
+// In dev mode, we use Astro.redirect to avoid a blank page.
+return Astro.redirect('/kontrolsub/pt/');
 ---

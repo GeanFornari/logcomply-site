@@ -54,8 +54,8 @@ export const ui = {
     'footer.privacy': 'Privacidade',
     'footer.delete_account': 'Excluir Conta',
     'seo.description': 'KontrolSub - Gestão de precisão para suas assinaturas digitais. Organize, monitore e economize com nossa interface moderna.',
-    'hero.mockup_alt': 'Dashboard do App KontrolSub mostrando gastos',
-    'product.mockup_alt': 'Dashboard de análise mostrando categorias de gastos',
+    'hero.mockup_alt': 'Interface do app KontrolSub exibindo o painel principal com resumo de assinaturas ativas e despesas',
+    'product.mockup_alt': 'Interface do app KontrolSub detalhando gráficos analíticos e distribuição de gastos por categoria',
   },
   'en': {
     'nav.home': 'Home',
@@ -100,8 +100,8 @@ export const ui = {
     'footer.privacy': 'Privacy',
     'footer.delete_account': 'Delete Account',
     'seo.description': 'KontrolSub - Precision management for your digital subscriptions. Organize, monitor and save with our modern interface.',
-    'hero.mockup_alt': 'KontrolSub App Dashboard showing expenses',
-    'product.mockup_alt': 'Analytics Dashboard showing spending categories',
+    'hero.mockup_alt': 'KontrolSub app interface displaying the main dashboard with active subscriptions and expenses summary',
+    'product.mockup_alt': 'KontrolSub app interface detailing analytical charts and spending distribution by category',
   },
   'es': {
     'nav.home': 'Inicio',
@@ -146,8 +146,8 @@ export const ui = {
     'footer.privacy': 'Privacidad',
     'footer.delete_account': 'Eliminar Cuenta',
     'seo.description': 'KontrolSub - Gestión de precisión para sus suscripciones digitales. Organiza, monitoriza y ahorra con nuestra interfaz moderna.',
-    'hero.mockup_alt': 'Panel de la aplicación KontrolSub que muestra los gastos',
-    'product.mockup_alt': 'Panel de análisis que muestra las categorías de gastos',
+    'hero.mockup_alt': 'Interfaz de la aplicación KontrolSub que muestra el panel principal con un resumen de suscripciones activas y gastos',
+    'product.mockup_alt': 'Interfaz de la aplicación KontrolSub que detalla gráficos analíticos e distribución de gastos por categoría',
   },
   'fr': {
     'nav.home': 'Accueil',
@@ -192,8 +192,8 @@ export const ui = {
     'footer.privacy': 'Confidentialité',
     'footer.delete_account': 'Supprimer le Compte',
     'seo.description': 'KontrolSub - Gestion de précision pour vos abonnements numériques. Organisez, surveillez et économisez avec notre interface moderne.',
-    'hero.mockup_alt': 'Tableau de bord de l\'application KontrolSub affichant les dépenses',
-    'product.mockup_alt': 'Tableau de bord d\'analyse montrant les catégories de dépenses',
+    'hero.mockup_alt': 'Interface de l\'application KontrolSub affichant le tableau de bord principal com un résumé des abonnements actifs et des d\u00e9penses',
+    'product.mockup_alt': 'Interface de l\'application KontrolSub détaillant les graphiques analytiques e la répartition des d\u00e9penses par catégorie',
   },
   'de': {
     'nav.home': 'Startseite',
@@ -238,7 +238,7 @@ export const ui = {
     'footer.privacy': 'Datenschutz',
     'footer.delete_account': 'Konto löschen',
     'seo.description': 'KontrolSub - Präzisionsmanagement für Ihre digitalen Abonnements. Organisieren, überwachen und sparen mit unserer modernen Oberfläche.',
-    'hero.mockup_alt': 'KontrolSub-App-Dashboard mit Ausgaben',
-    'product.mockup_alt': 'Analyse-Dashboard mit Ausgabekategorien',
+    'hero.mockup_alt': 'KontrolSub App-Oberfl\u00e4che mit dem Haupt-Dashboard mit aktiven Abonnements und Ausgaben\u00fcbersicht',
+    'product.mockup_alt': 'KontrolSub App-Oberfl\u00e4che mit detaillierten Analyse-Diagrammen und Ausgabenverteilung nach Kategorien',
   },
 } as const;
