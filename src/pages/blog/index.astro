@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+const sorted = allPosts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const categories = [
+  { id: 'all', label: 'Todos' },
+  { id: 'journey-comply', label: 'Journey Comply' },
+  { id: 'aisbr', label: 'AIS BR' },
+  { id: 'kontrolsub', label: 'KontrolSub' },
+  { id: 'aviacao', label: 'Aviação' },
+] as const;
+
+const postsWithReadingTime = sorted.map(post => {
+  const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
+  return { ...post, readingTime: Math.max(1, Math.ceil(words / 200)) };
+});
+---
+
+<Layout
+  title="Blog — Vektor Aero"
+  description="Artigos sobre aviação, RBAC 117, informações aeronáuticas e gestão de assinaturas digitais. Conteúdo especializado para pilotos e gestores."
+>
+  <Header />
+
+  <main class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+      <!-- Hero -->
+      <div class="mb-16 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Blog Vektor Aero</h1>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          Conteúdo especializado em aviação civil brasileira, regulação e tecnologia para pilotos e operadores.
+        </p>
+      </div>
+
+      <!-- Filtro por categoria -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" id="category-filters">
+        {categories.map(cat => (
+          <button
+            data-category={cat.id}
+            class={`category-btn px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+              cat.id === 'all'
+                ? 'bg-sky-500 text-white border-sky-500'
+                : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-white'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid de artigos -->
+      {postsWithReadingTime.length === 0 ? (
+        <div class="text-center py-24 text-gray-500">
+          <p class="text-lg">Nenhum artigo publicado ainda.</p>
+          <p class="text-sm mt-2">Em breve novos conteúdos por aqui.</p>
+        </div>
+      ) : (
+        <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {postsWithReadingTime.map(post => (
+            <div data-post-category={post.data.category}>
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                category={post.data.category}
+                tags={post.data.tags}
+                image={post.data.image}
+                href={`/blog/${post.id}/`}
+                readingTime={post.readingTime}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+    </div>
+  </main>
+
+  <footer class="border-t border-white/10 py-8 text-center text-sm text-gray-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>© {new Date().getFullYear()} Vektor Aero — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.category-btn');
+  const posts = document.querySelectorAll<HTMLDivElement>('[data-post-category]');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selected = btn.dataset.category ?? 'all';
+
+      buttons.forEach(b => {
+        b.classList.remove('bg-sky-500', 'text-white', 'border-sky-500');
+        b.classList.add('bg-white/5', 'text-gray-400', 'border-white/10');
+      });
+      btn.classList.add('bg-sky-500', 'text-white', 'border-sky-500');
+      btn.classList.remove('bg-white/5', 'text-gray-400', 'border-white/10');
+
+      posts.forEach(post => {
+        const match = selected === 'all' || post.dataset.postCategory === selected;
+        post.style.display = match ? '' : 'none';
+      });
+    });
+  });
+</script>
