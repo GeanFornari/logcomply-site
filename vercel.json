@@ -11,6 +11,31 @@
       "source": "/kontrolsub/",
       "destination": "/kontrolsub/pt/",
       "permanent": true
+    },
+    {
+      "source": "/:lang(pt|en|es|fr|de)/kontrolsub/legal/:document",
+      "destination": "/kontrolsub/:lang/legal/:document/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(pt|en|es|fr|de)/kontrolsub",
+      "destination": "/kontrolsub/:lang/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(pt|en|es|fr|de)/kontrolsub/",
+      "destination": "/kontrolsub/:lang/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(pt|en|es|fr|de)",
+      "destination": "/kontrolsub/:lang/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(pt|en|es|fr|de)/",
+      "destination": "/kontrolsub/:lang/",
+      "permanent": true
     }
   ],
   "headers": [
