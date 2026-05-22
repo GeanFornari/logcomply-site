@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo *)",
+      "Bash(git -C /Users/gean/Projetos/logcomply-site remote set-url origin git@github.com:GeanFornari/vektoraero.git)",
+      "Bash(git -C /Users/gean/Projetos/logcomply-site remote -v)"
+    ]
+  }
+}
